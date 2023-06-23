@@ -1,3 +1,29 @@
-NAME	=	philo
-CC		=	gcc
-CFLAGS	=	-Wall -Werror -Wextra
+NAME		=	philo
+CC			=	gcc
+CFLAGS		=	-Wall -Werror -Wextra
+RM			=	rm -rf
+SRC			=	main.c
+UTILS		=	check_args.c error.c init.c
+LIBFT		=	libft/libft.a
+SRC_PATH	=	$(addprefix src/, $(SRC))
+UTILS_PATH	=	$(addprefix utils/, $(UTILS))
+OBJ			=	$(SRC_PATH:.c=.o) $(UTILS_PATH:.c=.o)
+all:	$(NAME)
+
+$(NAME):	$(LIBFT) $(OBJ)
+	$(CC) $(CFLAGS) $(LIBFT) $(OBJ) -o $(NAME)
+
+$(LIBFT):
+	make -C libft
+
+fclean:	clean
+	$(RM) $(NAME)
+	make fclean -C libft
+
+clean:
+	$(RM) $(OBJ)
+	make clean -C libft
+
+re:	fclean all
+
+.PHONY:	re clean fclean

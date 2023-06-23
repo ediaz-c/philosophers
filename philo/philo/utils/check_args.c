@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_args.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ediaz--c <ediaz--c@student.42madrid>       +#+  +:+       +#+        */
+/*   By: ediaz--c <ediaz--c@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 18:33:02 by ediaz--c          #+#    #+#             */
-/*   Updated: 2023/06/19 19:14:18 by ediaz--c         ###   ########.fr       */
+/*   Updated: 2023/06/23 17:55:58 by ediaz--c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 int	ft_isnumber(char *number)
 {
 	int	i;
+
+    i = 0;
 	while (number[i])
 	{
 		if (ft_isdigit(number[i++]) == 0)
@@ -22,10 +24,10 @@ int	ft_isnumber(char *number)
 	}
 	return (1);
 }
+
 int	ft_is_valid_number(char *number)
 {
 	int	i;
-	int	sg;
 	long	nb;
 
 	i = 0;
@@ -46,7 +48,7 @@ int	ft_check_args(char **args)
 	int		i;
 
 	i = 0;
-	while(args[++i])
+	while (args[++i])
 	{
 		tmp = ft_strtrim(args[i], " \t\n");
 		if (ft_isnumber(tmp))
