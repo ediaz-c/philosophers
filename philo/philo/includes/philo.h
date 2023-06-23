@@ -6,7 +6,7 @@
 /*   By: ediaz--c <ediaz--c@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 18:29:06 by ediaz--c          #+#    #+#             */
-/*   Updated: 2023/06/23 18:20:24 by ediaz--c         ###   ########.fr       */
+/*   Updated: 2023/06/23 19:49:46 by ediaz--c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <pthread.h>
 # include <stdlib.h>
 # include <unistd.h>
+#include <sys/time.h>
 # include "../libft/libft.h"
 
 typedef struct s_args
@@ -31,9 +32,10 @@ typedef struct s_args
 typedef struct s_philo
 {
 	int				id;
-	int				is_dead;
+	int				*is_dead;
 	int				laps;
-	pthread_t		id_thread;
+	long int				time_init;
+	pthread_t		tid;
 	pthread_mutex_t	*fork_right;
 	pthread_mutex_t	fork_left;
 }			t_philo;
@@ -43,10 +45,14 @@ typedef struct s_vars
 	t_args	args;
 	t_philo	*philo;
 }			t_vars;
+
 // SRC
+void	ft_init_vars(t_vars *v, char **args);
+void	ft_init_threads(t_vars *v);
+void	ft_init_philos(t_vars *v);
+void	*rutine(void *vars);
 // UTILS
 int		ft_check_args(char **args);
-void	ft_init_vars(t_vars *v, char **args);
-void	ft_init_philos(t_vars *v);
 void	ft_error(char *msg);
+long int	ft_actual_time(void);
 #endif

@@ -6,7 +6,7 @@
 /*   By: ediaz--c <ediaz--c@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 18:33:02 by ediaz--c          #+#    #+#             */
-/*   Updated: 2023/06/23 17:55:58 by ediaz--c         ###   ########.fr       */
+/*   Updated: 2023/06/23 18:46:01 by ediaz--c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	ft_isnumber(char *number)
 {
 	int	i;
 
-    i = 0;
+	i = 0;
 	while (number[i])
 	{
 		if (ft_isdigit(number[i++]) == 0)
@@ -27,7 +27,7 @@ int	ft_isnumber(char *number)
 
 int	ft_is_valid_number(char *number)
 {
-	int	i;
+	int		i;
 	long	nb;
 
 	i = 0;
