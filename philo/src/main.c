@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ediaz--c <ediaz--c@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: ediaz--c <ediaz--c@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 18:29:33 by ediaz--c          #+#    #+#             */
-/*   Updated: 2023/06/23 19:53:48 by ediaz--c         ###   ########.fr       */
+/*   Updated: 2023/06/24 17:28:03 by ediaz--c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,13 @@ void	check_philos(t_vars *v)
 		// printf("IS DEAD: %d\n", p[i].is_dead);
 		printf("LAPS: %d\n", p[i].laps);
 		printf("Fork left: %p\n", (&p[i].fork_left));
-		printf("Fork right: %p\n\n", p[i].fork_right);
+		printf("Fork right: %p\n", p[i].fork_right);
+		printf("Time init: %ld\n", p[i].time_init);
+		printf("Time to die: %d\n", p[i].tdie);
+		printf("Time to eat: %d\n", p[i].teat);
+		printf("Time to sleep: %d\n", p[i].tsleep);
+		printf("Is dead: %s\n\n", (*p[i].is_dead)?"dead":"live");
+		
 		i++;
 	}
 }
@@ -34,6 +40,8 @@ int	main(int ac, char *av[])
 {
 	t_vars	vars;
 
+	if (ac == 1)
+		printf("./philo [number_of_philosophers] [time_to_die] [time_to_eat] [time_to_sleep] [[number_of_times_each_philosopher_must_eat]\n");
 	if (ac != 5 && ac != 6)
 		ft_error("Numero de argumentos invalidos");
 	if (ft_check_args(av) == 0)
@@ -45,6 +53,5 @@ int	main(int ac, char *av[])
 	ft_init_philos(&vars);
 	check_philos(&vars);
 	ft_init_threads(&vars);
-	while (1){/**/}
-	system("leaks -q philo");
+	// system("leaks -q philo");
 }

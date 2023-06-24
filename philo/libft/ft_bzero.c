@@ -1,20 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error.c                                            :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ediaz--c <ediaz--c@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: ediaz--c <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/22 19:10:58 by ediaz--c          #+#    #+#             */
-/*   Updated: 2023/06/22 19:12:42 by ediaz--c         ###   ########.fr       */
+/*   Created: 2023/03/07 17:22:04 by ediaz--c          #+#    #+#             */
+/*   Updated: 2023/03/08 12:05:54 by ediaz--c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "libft.h"
 
-#include "../includes/philo.h"
-
-void	ft_error(char *msg)
+void	ft_bzero(void *s, size_t n)
 {
-	write(2, msg, ft_strlen(msg));
-	write(2, "\n", 1);
-	exit (1);
+	unsigned char	*reg;
+	size_t			i;
+
+	reg = (unsigned char *)s;
+	i = 0;
+	while (i < n)
+	{
+		reg[i] = '\0';
+		i++;
+	}
 }

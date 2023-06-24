@@ -1,38 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rutine.c                                           :+:      :+:    :+:   */
+/*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ediaz--c <ediaz--c@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: ediaz--c <ediaz--c@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/23 19:09:44 by ediaz--c          #+#    #+#             */
-/*   Updated: 2023/06/23 19:50:37 by ediaz--c         ###   ########.fr       */
+/*   Created: 2023/06/22 19:10:58 by ediaz--c          #+#    #+#             */
+/*   Updated: 2023/06/24 16:55:33 by ediaz--c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/philo.h"
 
-// static void	ft_take_forks(t_philo *p)
-// {
-// }
-
-void	*rutine(void *philo)
+void	ft_put_msg(char *msg)
 {
-	t_philo	*p;
-	int		i;
+	write(1, msg, ft_strlen(msg));
+	write(1, "\n", 1);
+}
 
-	i = 0;
-	p = philo;
-	p->time_init = ft_actual_time();
-	while (i != p->laps && p->is_dead == 0)
-	{
-		//take forks
-		//eat
-		//sleep
-		//think
-		//die
-		
-		i++;
-	}
-	return (0);
+void	ft_error(char *msg)
+{
+	write(2, msg, ft_strlen(msg));
+	write(2, "\n", 1);
+	exit (1);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ediaz--c <ediaz--c@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: ediaz--c <ediaz--c@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 18:29:06 by ediaz--c          #+#    #+#             */
-/*   Updated: 2023/06/23 19:49:46 by ediaz--c         ###   ########.fr       */
+/*   Updated: 2023/06/24 18:19:17 by ediaz--c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,13 @@ typedef struct s_philo
 {
 	int				id;
 	int				*is_dead;
+	int				eaten;
 	int				laps;
-	long int				time_init;
+	long int		time_init;
+	long int		time;
+	int				tdie;
+	int				teat;
+	int				tsleep;
 	pthread_t		tid;
 	pthread_mutex_t	*fork_right;
 	pthread_mutex_t	fork_left;
@@ -54,5 +59,6 @@ void	*rutine(void *vars);
 // UTILS
 int		ft_check_args(char **args);
 void	ft_error(char *msg);
+void	ft_put_msg(char *msg);
 long int	ft_actual_time(void);
 #endif
