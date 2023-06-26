@@ -6,7 +6,7 @@
 /*   By: ediaz--c <ediaz--c@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 18:29:06 by ediaz--c          #+#    #+#             */
-/*   Updated: 2023/06/24 18:19:17 by ediaz--c         ###   ########.fr       */
+/*   Updated: 2023/06/26 19:33:02 by ediaz--c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,20 +22,21 @@
 
 typedef struct s_args
 {
-	int	nb_phs;
-	int	tdie;
-	int	teat;
-	int	tsleep;
-	int	nb_eats;
+	int			nb_phs;
+	int			tdie;
+	int			teat;
+	int			tsleep;
+	int			nb_eats;
+	long int	time_init;
 }	t_args;
 
 typedef struct s_philo
 {
 	int				id;
-	int				*is_dead;
-	int				eaten;
+	int				is_dead;
+	int				last_eat;
+	int				feat;
 	int				laps;
-	long int		time_init;
 	long int		time;
 	int				tdie;
 	int				teat;

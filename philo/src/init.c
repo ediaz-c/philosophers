@@ -6,7 +6,7 @@
 /*   By: ediaz--c <ediaz--c@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/22 18:59:59 by ediaz--c          #+#    #+#             */
-/*   Updated: 2023/06/24 17:33:51 by ediaz--c         ###   ########.fr       */
+/*   Updated: 2023/06/26 19:23:45 by ediaz--c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,23 +29,23 @@ void	ft_init_philos(t_vars *v)
 {
 	t_philo	*p;
 	int		i;
-	int		is_dead;
 
-	is_dead = 0;
 	p = v->philo;
 	i = -1;
+	v->args.time_init = ft_actual_time();
 	while (++i < v->args.nb_phs)
 	{
 		printf("Creado filosofo número %d\n", (i + 1));
 		p[i].id = i + 1;
-		p[i].is_dead = &is_dead;
+		p[i].is_dead = 0;
 		p[i].laps = v->args.nb_eats;
 		p[i].fork_right = NULL;
 		p[i].tdie = v->args.tdie;
 		p[i].teat = v->args.teat;
 		p[i].tsleep = v->args.tsleep;
-		p[i].time_init = ft_actual_time();
+		p[i].time = v->args.time_init;
 		p[i].fork_right = NULL;
+		p[i].feat = (p[i].id % 2 == 0);
 		if (pthread_mutex_init(&p[i].fork_left, NULL) != 0)
 			ft_error("mutex error");
 		if (v->args.nb_phs == 1)
@@ -67,6 +67,7 @@ void	ft_init_threads(t_vars *v)
 			ft_error("Thread error");
 		i++;
 	}
+	//ft_dead_philo(v); /*TODO*/
 	i = 0;
 	while (i < v->args.nb_phs)
 		pthread_join(p[i++].tid, NULL);

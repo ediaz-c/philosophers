@@ -11,18 +11,18 @@ OBJ			=	$(SRC_PATH:.c=.o) $(UTILS_PATH:.c=.o)
 all:	$(NAME)
 
 $(NAME):	$(LIBFT) $(OBJ)
-	$(CC) $(CFLAGS) $(LIBFT) $(OBJ) -o $(NAME)
+	@$(CC) $(CFLAGS) $(LIBFT) $(OBJ) -o $(NAME)
 
 $(LIBFT):
-	make -C libft
+	@make -C libft
 
 fclean:	clean
-	$(RM) $(NAME)
-	make fclean -C libft
+	@$(RM) $(NAME)
+	@make fclean -C libft
 
 clean:
-	$(RM) $(OBJ)
-	make clean -C libft
+	@$(RM) $(OBJ)
+	@make clean -C libft
 
 re:	fclean all
 
