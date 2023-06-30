@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error.c                                            :+:      :+:    :+:   */
+/*   msg.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ediaz--c <ediaz--c@student.42madrid>       +#+  +:+       +#+        */
+/*   By: ediaz--c <ediaz--c@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/22 19:10:58 by ediaz--c          #+#    #+#             */
-/*   Updated: 2023/06/24 16:55:33 by ediaz--c         ###   ########.fr       */
+/*   Updated: 2023/06/30 11:19:18 by ediaz--c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,4 +23,9 @@ void	ft_error(char *msg)
 	write(2, msg, ft_strlen(msg));
 	write(2, "\n", 1);
 	exit (1);
+}
+
+void	ft_philo_msg(char *msg, t_philo	*p)
+{
+	printf("[%ld] philo %d %s\n", (ft_actual_time() - p->time), p->id, msg);
 }

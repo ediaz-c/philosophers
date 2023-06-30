@@ -1,8 +1,8 @@
 NAME		=	philo
 CC			=	gcc
-CFLAGS		=	-Wall -Werror -Wextra -fsanitize=address -g3
+CFLAGS		=	-Wall -Werror -Wextra #-fsanitize=address -g3
 RM			=	rm -rf
-SRC			=	main.c init.c rutine.c
+SRC			=	main.c init.c rutine.c dead.c
 UTILS		=	check_args.c msg.c time.c
 LIBFT		=	libft/libft.a
 SRC_PATH	=	$(addprefix src/, $(SRC))
