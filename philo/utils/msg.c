@@ -6,7 +6,7 @@
 /*   By: ediaz--c <ediaz--c@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/22 19:10:58 by ediaz--c          #+#    #+#             */
-/*   Updated: 2023/06/30 11:19:18 by ediaz--c         ###   ########.fr       */
+/*   Updated: 2023/06/30 19:34:37 by ediaz--c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,5 @@ void	ft_error(char *msg)
 
 void	ft_philo_msg(char *msg, t_philo	*p)
 {
-	printf("[%ld] philo %d %s\n", (ft_actual_time() - p->time), p->id, msg);
+	printf("[%6ld] philo %d %s\n", (ft_actual_time() - p->time), p->id, msg);
 }

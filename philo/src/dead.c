@@ -6,13 +6,29 @@
 /*   By: ediaz--c <ediaz--c@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/26 19:37:36 by ediaz--c          #+#    #+#             */
-/*   Updated: 2023/06/30 11:28:53 by ediaz--c         ###   ########.fr       */
+/*   Updated: 2023/06/30 20:03:08 by ediaz--c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/philo.h"
 
-int	ft_check_dead(t_vars *v)
+static int	ft_all_thread_stop(t_vars *v)
+{
+	int	i;
+
+	i = 0;
+	if (v->args.nb_eats == -1)
+		return (0);
+	while (i < v->args.nb_phs)
+	{
+		if (v->philo[i].laps != 0)
+			return (0);
+		i++;
+	}
+	return (1);
+}
+
+static int	ft_time_dead(t_vars *v)
 {
 	t_philo	*p;
 	int		i;
@@ -21,30 +37,50 @@ int	ft_check_dead(t_vars *v)
 	p = v->philo;
 	while (i < v->args.nb_phs)
 	{
-		if (p[i].tdie <= (ft_actual_time() - p[i].last_eat))
+		if (p[i].last_eat < 0 && p[i].tdie <= (ft_actual_time() - p[i].last_eat))
 		{
-			printf("[%ld] philo %d is dead\n", (ft_actual_time() - p->time), p->id);
+			p[i].is_dead = 1;
 			return (0);
 		}
+		i++;
 	}
 	return (1);
+}
+
+int	ft_check_dead(t_philo *p)
+{
+	if (p->is_dead == 1)
+	{
+		printf("[%ld] philo %d is dead\n", (ft_actual_time() - p->time), p->id);
+		return (1);
+	}
+	return (0);
 }
 
 void	ft_dead_philo(t_vars *v)
 {
 	t_philo	*p;
 	int		i;
+	int		is_dead;
 
 	i = 0;
+	is_dead = 0;
 	p = v->philo;
 	while (1)
 	{
-		if (ft_check_dead(v) == 0)
+		if (ft_time_dead(v) == 0)
+		{
+			/*TODO*/
+			is_dead = 1;
+			break ;
+		}	
+		if (ft_all_thread_stop(v))
 			break ;
 	}
-	while (i < v->args.nb_phs)
+	while (is_dead && i < v->args.nb_phs)
 	{
-		p[i].is_dead = 1;
-		i++;
+		if (p[i].is_dead != 1)
+			p[i].is_dead = -1;
+			i++;
 	}
 }

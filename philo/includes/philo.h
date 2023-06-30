@@ -6,7 +6,7 @@
 /*   By: ediaz--c <ediaz--c@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 18:29:06 by ediaz--c          #+#    #+#             */
-/*   Updated: 2023/06/30 11:28:17 by ediaz--c         ###   ########.fr       */
+/*   Updated: 2023/06/30 19:00:45 by ediaz--c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@ void		ft_init_vars(t_vars *v, char **args);
 void		ft_init_threads(t_vars *v);
 void		ft_init_philos(t_vars *v);
 void		ft_dead_philo(t_vars *v);
+int			ft_check_dead(t_philo *p);
 void		*rutine(void *vars);
 // UTILS
 int			ft_check_args(char **args);

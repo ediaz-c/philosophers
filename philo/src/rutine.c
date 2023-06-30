@@ -6,39 +6,39 @@
 /*   By: ediaz--c <ediaz--c@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/23 19:09:44 by ediaz--c          #+#    #+#             */
-/*   Updated: 2023/06/30 11:34:53 by ediaz--c         ###   ########.fr       */
+/*   Updated: 2023/06/30 20:01:19 by ediaz--c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/philo.h"
 
-static int	ft_eat(t_philo *p)
+static void	ft_forks(t_philo *p, int take)
 {
-	int	i;
-
-	i = 0;
-	if (!p->feat)
+	if (take)
 	{
 		if (pthread_mutex_lock(&p->fork_left) == 0)
 		{
 			pthread_mutex_lock(p->print);
 			ft_philo_msg("take left fork", p);
 			if (p->fork_right && pthread_mutex_lock(p->fork_right) == 0)
-			{
 				ft_philo_msg("take right fork", p);
-				ft_philo_msg("is eating", p);
-				p->last_eat = (ft_actual_time() - p->time);
-				i = 1;
-				usleep(p->teat * 1000);
-				pthread_mutex_unlock(p->fork_right);
-			}
-				pthread_mutex_unlock(p->print);
-				pthread_mutex_unlock(&p->fork_left);
+			pthread_mutex_unlock(p->print);
 		}
 	}
 	else
-		p->feat = 0;
-	return (i);
+	{
+		pthread_mutex_unlock(&p->fork_left);
+		pthread_mutex_unlock(p->fork_right);
+	}
+}
+
+static void	ft_eat(t_philo *p)
+{
+	pthread_mutex_lock(p->print);
+	ft_philo_msg("is eating", p);
+	p->last_eat = ft_actual_time();
+	usleep(p->teat * 1000);
+	pthread_mutex_unlock(p->print);
 }
 
 int	ft_sleep(t_philo *p)
@@ -65,16 +65,23 @@ void	*rutine(void *philo)
 
 	i = 0;
 	p = philo;
-	while (i != p->laps && !p->is_dead)
+	if ((p[i].id % 2) == 0)
+		usleep(100);
+	while (i != p->laps && p->is_dead != -1)
 	{
-		if (ft_eat(p))
-		{
-			ft_sleep(p);
-			ft_think(p);
-		}
-		else
-			usleep(10);
+		ft_forks(p, 1);
+		if (ft_check_dead(p))
+			break ;
+		ft_eat(p);
+		ft_forks(p, 0);
+		if (ft_check_dead(p))
+			break ;
+		ft_sleep(p);
+		if (ft_check_dead(p))
+			break ;
+		ft_think(p);
 		i++;
 	}
+	p->laps = 0;
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: ediaz--c <ediaz--c@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/22 18:59:59 by ediaz--c          #+#    #+#             */
-/*   Updated: 2023/06/30 11:24:52 by ediaz--c         ###   ########.fr       */
+/*   Updated: 2023/06/30 19:17:14 by ediaz--c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,7 @@ void	ft_init_philos(t_vars *v)
 		p[i].tsleep = v->args.tsleep;
 		p[i].time = v->args.time_init;
 		p[i].feat = (p[i].id % 2 == 0);
+		p[i].last_eat = 0;
 	}
 	ft_init_mutex(v);
 }
