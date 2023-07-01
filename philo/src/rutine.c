@@ -6,7 +6,7 @@
 /*   By: ediaz--c <ediaz--c@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/23 19:09:44 by ediaz--c          #+#    #+#             */
-/*   Updated: 2023/06/30 20:01:19 by ediaz--c         ###   ########.fr       */
+/*   Updated: 2023/07/01 15:24:35 by ediaz--c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@ static void	ft_forks(t_philo *p, int take)
 		if (pthread_mutex_lock(&p->fork_left) == 0)
 		{
 			pthread_mutex_lock(p->print);
-			ft_philo_msg("take left fork", p);
+			ft_philo_msg("take left fork", p, 0);
 			if (p->fork_right && pthread_mutex_lock(p->fork_right) == 0)
-				ft_philo_msg("take right fork", p);
+				ft_philo_msg("take right fork", p, 0);
 			pthread_mutex_unlock(p->print);
 		}
 	}
@@ -35,7 +35,7 @@ static void	ft_forks(t_philo *p, int take)
 static void	ft_eat(t_philo *p)
 {
 	pthread_mutex_lock(p->print);
-	ft_philo_msg("is eating", p);
+	ft_philo_msg("is eating", p, 1);
 	p->last_eat = ft_actual_time();
 	usleep(p->teat * 1000);
 	pthread_mutex_unlock(p->print);
@@ -44,7 +44,7 @@ static void	ft_eat(t_philo *p)
 int	ft_sleep(t_philo *p)
 {
 	pthread_mutex_lock(p->print);
-	ft_philo_msg("is sleeping", p);
+	ft_philo_msg("is sleeping", p, 2);
 	usleep(p->tsleep * 1000);
 	pthread_mutex_unlock(p->print);
 	return (1);
@@ -53,7 +53,7 @@ int	ft_sleep(t_philo *p)
 int	ft_think(t_philo *p)
 {
 	pthread_mutex_lock(p->print);
-	ft_philo_msg("is thinking", p);
+	ft_philo_msg("is thinking", p, 3);
 	pthread_mutex_unlock(p->print);
 	return(1);
 }

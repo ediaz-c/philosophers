@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ediaz--c <ediaz--c@student.42madrid>       +#+  +:+       +#+        */
+/*   By: ediaz--c <ediaz--c@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 18:29:33 by ediaz--c          #+#    #+#             */
-/*   Updated: 2023/06/26 19:19:11 by ediaz--c         ###   ########.fr       */
+/*   Updated: 2023/07/01 15:38:46 by ediaz--c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ int	main(int ac, char *av[])
 	if (vars.philo == NULL)
 		ft_error("No alocada memoria");
 	ft_init_philos(&vars);
-	check_philos(&vars);
+	// check_philos(&vars);
 	ft_init_threads(&vars);
 	// system("leaks -q philo");
 }

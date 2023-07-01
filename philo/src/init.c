@@ -6,7 +6,7 @@
 /*   By: ediaz--c <ediaz--c@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/22 18:59:59 by ediaz--c          #+#    #+#             */
-/*   Updated: 2023/06/30 19:17:14 by ediaz--c         ###   ########.fr       */
+/*   Updated: 2023/07/01 15:39:34 by ediaz--c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	ft_init_vars(t_vars *v, char **args)
 		v->args.nb_eats = ft_atoi(args[5]);
 	else
 		v->args.nb_eats = -1;
-	printf("%d\n", v->args.nb_eats);
+	// printf("%d\n", v->args.nb_eats);
 }
 
 void	ft_init_mutex(t_vars *v)
@@ -58,7 +58,7 @@ void	ft_init_philos(t_vars *v)
 	v->args.time_init = ft_actual_time();
 	while (++i < v->args.nb_phs)
 	{
-		printf("Creado filosofo número %d\n", (i + 1));
+		// printf("Creado filosofo número %d\n", (i + 1));
 		p[i].id = i + 1;
 		p[i].is_dead = 0;
 		p[i].laps = v->args.nb_eats;

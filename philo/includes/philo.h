@@ -6,7 +6,7 @@
 /*   By: ediaz--c <ediaz--c@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 18:29:06 by ediaz--c          #+#    #+#             */
-/*   Updated: 2023/06/30 19:00:45 by ediaz--c         ###   ########.fr       */
+/*   Updated: 2023/07/01 15:19:18 by ediaz--c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ typedef struct s_philo
 {
 	int				id;
 	int				is_dead;
-	int				last_eat;
+	long int		last_eat;
 	int				feat;
 	int				laps;
 	long int		time;
@@ -65,6 +65,6 @@ void		*rutine(void *vars);
 int			ft_check_args(char **args);
 void		ft_error(char *msg);
 void		ft_put_msg(char *msg);
-void		ft_philo_msg(char *msg, t_philo	*p);
+void	ft_philo_msg(char *msg, t_philo	*p, int	format);
 long int	ft_actual_time(void);
 #endif
