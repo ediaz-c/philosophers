@@ -1,6 +1,7 @@
 NAME		=	philo
 CC			=	gcc
-CFLAGS		=	-Wall -Werror -Wextra #-fsanitize=address -g3
+CFLAGS		=	-Wall -Werror -Wextra
+SANITIZE	=	-fsanitize=thread
 RM			=	rm -rf
 SRC			=	main.c init.c rutine.c dead.c
 UTILS		=	check_args.c msg.c time.c
@@ -16,6 +17,12 @@ $(NAME):	$(LIBFT) $(OBJ)
 $(LIBFT):
 	@make -C libft
 
+norm:	
+	norminette
+
+sanitize: 
+	@$(CC) $(CFLAGS) $(SANITIZE) $(LIBFT) $(OBJ) -o $(NAME)
+
 fclean:	clean
 	@$(RM) $(NAME)
 	@make fclean -C libft
@@ -26,4 +33,4 @@ clean:
 
 re:	fclean all
 
-.PHONY:	re clean fclean
+.PHONY:	re clean fclean norm sanitize
