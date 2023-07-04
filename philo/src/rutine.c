@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rutine.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ediaz--c <ediaz--c@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: ediaz--c <ediaz--c@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/23 19:09:44 by ediaz--c          #+#    #+#             */
-/*   Updated: 2023/07/01 20:14:57 by ediaz--c         ###   ########.fr       */
+/*   Updated: 2023/07/04 14:26:48 by ediaz--c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,9 +63,9 @@ void	*rutine(void *philo)
 	t_philo		*p;
 	int			i;
 
-	i = -1;
+	i = 0;
 	p = philo;
-	if ((p[i].id % 2) == 0)
+	if ((p->id % 2) == 0)
 		usleep(100);
 	while (++i != p->laps && p->is_dead != -1)
 	{
