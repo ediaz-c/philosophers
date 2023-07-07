@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ediaz--c <ediaz--c@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: ediaz--c <ediaz--c@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/22 18:59:59 by ediaz--c          #+#    #+#             */
-/*   Updated: 2023/07/01 20:04:45 by ediaz--c         ###   ########.fr       */
+/*   Updated: 2023/07/07 14:16:27 by ediaz--c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@ void	ft_init_mutex(t_vars *v)
 		ft_error("mutex error");
 	while (i < v->args.nb_phs)
 	{
+		if (pthread_mutex_init(p[i].mod_philo, NULL) != 0)
+			ft_error("mutex error");
 		p[i].fork_right = NULL;
 		p[i].print = &write_status;
 		if (pthread_mutex_init(&p[i].fork_left, NULL) != 0)

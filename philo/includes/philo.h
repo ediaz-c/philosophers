@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ediaz--c <ediaz--c@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: ediaz--c <ediaz--c@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 18:29:06 by ediaz--c          #+#    #+#             */
-/*   Updated: 2023/07/07 13:32:18 by ediaz--c         ###   ########.fr       */
+/*   Updated: 2023/07/07 14:13:32 by ediaz--c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ typedef struct s_philo
 	int				teat;
 	int				tsleep;
 	pthread_t		tid;
+	pthread_mutex_t	*mod_philo;
 	pthread_mutex_t	*print;
 	pthread_mutex_t	*fork_right;
 	pthread_mutex_t	fork_left;
