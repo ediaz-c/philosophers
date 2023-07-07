@@ -1,6 +1,6 @@
 NAME		=	philo
 CC			=	gcc
-CFLAGS		=	-Wall -Werror -Wextra -fsanitize=thread -g
+CFLAGS		=	-Wall -Werror -Wextra
 SANITIZE	=	-fsanitize=thread
 RM			=	rm -rf
 SRC			=	main.c init.c rutine.c dead.c
@@ -12,7 +12,7 @@ OBJ			=	$(SRC_PATH:.c=.o) $(UTILS_PATH:.c=.o)
 all:	$(NAME)
 
 $(NAME):	$(LIBFT) $(OBJ)
-	@$(CC) $(CFLAGS) $(LIBFT) $(OBJ) -o $(NAME)
+	@$(CC) $(CFLAGS) $(OBJ) $(LIBFT) -o $(NAME)
 
 $(LIBFT):
 	@make -C libft

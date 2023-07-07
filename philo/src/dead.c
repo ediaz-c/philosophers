@@ -6,7 +6,7 @@
 /*   By: ediaz--c <ediaz--c@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/26 19:37:36 by ediaz--c          #+#    #+#             */
-/*   Updated: 2023/07/01 20:05:31 by ediaz--c         ###   ########.fr       */
+/*   Updated: 2023/07/07 12:32:03 by ediaz--c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,10 +37,11 @@ static int	ft_time_dead(t_vars *v)
 	p = v->philo;
 	while (i < v->args.nb_phs)
 	{
-		if (p[i].last_eat > 0 && p[i].tdie
+		if (p[i].laps != 0 && p[i].last_eat > 0 && p[i].tdie
 			<= (ft_actual_time() - p[i].last_eat))
 		{
 			p[i].is_dead = 1;
+			ft_philo_msg(&p[i], 5);
 			return (0);
 		}
 		i++;
@@ -50,12 +51,14 @@ static int	ft_time_dead(t_vars *v)
 
 int	ft_check_dead(t_philo *p)
 {
-	if (p->is_dead == 1)
+	if (p->is_dead != 0)
 	{
-		ft_philo_msg(p, 5);
+		pthread_mutex_unlock(p->fork_right);
+		pthread_mutex_unlock(&p->fork_left);
+		pthread_mutex_unlock(p->print);
 		return (1);
-	}
-	return (0);
+	
+	}return (0);
 }
 
 void	ft_dead_philo(t_vars *v)

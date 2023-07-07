@@ -6,7 +6,7 @@
 /*   By: ediaz--c <ediaz--c@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/22 19:10:58 by ediaz--c          #+#    #+#             */
-/*   Updated: 2023/07/01 20:03:09 by ediaz--c         ###   ########.fr       */
+/*   Updated: 2023/07/07 12:19:30 by ediaz--c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ void	ft_error(char *msg)
 */
 void	ft_philo_msg(t_philo *p, int format)
 {
+	pthread_mutex_lock(p->print);
 	if (format == 0)
 		printf("\033[1;37m[%6ld] 🍴 philo %d take right fork\n\033[0m",
 			(ft_actual_time() - p->time), p->id);
@@ -53,4 +54,5 @@ void	ft_philo_msg(t_philo *p, int format)
 	else if (format == 5)
 		printf("\033[1;31m[%6ld] 💀 philo %d is dead\n\033[0m",
 			(ft_actual_time() - p->time), p->id);
+	pthread_mutex_unlock(p->print);
 }

@@ -6,35 +6,35 @@
 /*   By: ediaz--c <ediaz--c@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 18:29:33 by ediaz--c          #+#    #+#             */
-/*   Updated: 2023/07/01 20:09:46 by ediaz--c         ###   ########.fr       */
+/*   Updated: 2023/07/07 12:29:05 by ediaz--c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/philo.h"
 
-// void	check_philos(t_vars *v)
-// {
-// 	t_philo	*p;
-// 	int		i;
+void	check_philos(t_vars *v)
+{
+	t_philo	*p;
+	int		i;
 
-// 	i = 0;
-// 	p = v->philo;
-// 	while (i < v->args.nb_phs)
-// 	{
-// 		printf("ID: %d\n", p[i].id);
-// 		printf("LAPS: %d\n", p[i].laps);
-// 		printf("Fork left: %p\n", (&p[i].fork_left));
-// 		printf("Fork right: %p\n", p[i].fork_right);
-// 		printf("Time init: %ld\n", p[i].time);
-// 		printf("Time to die: %d\n", p[i].tdie);
-// 		printf("Time to eat: %d\n", p[i].teat);
-// 		printf("Time to sleep: %d\n", p[i].tsleep);
-// 		printf("Is dead: %s\n", (p[i].is_dead) ? "dead" : "live");
-// 		printf("Eat: %d\n", p[i].feat);
-// 		printf("Print: %p\n\n", p[i].print);
-// 		i++;
-// 	}
-// }
+	i = 0;
+	p = v->philo;
+	while (i < v->args.nb_phs)
+	{
+		printf("ID: %d\n", p[i].id);
+		printf("LAPS: %d\n", p[i].laps);
+		printf("Fork left: %p\n", (&p[i].fork_left));
+		printf("Fork right: %p\n", p[i].fork_right);
+		printf("Time init: %ld\n", p[i].time);
+		printf("Time to die: %d\n", p[i].tdie);
+		printf("Time to eat: %d\n", p[i].teat);
+		printf("Time to sleep: %d\n", p[i].tsleep);
+		printf("Is dead: %s\n", (p[i].is_dead) ? "dead" : "live");
+		printf("Eat: %d\n", p[i].feat);
+		printf("Print: %p\n\n", p[i].print);
+		i++;
+	}
+}
 
 int	main(int ac, char *av[])
 {
@@ -52,5 +52,7 @@ int	main(int ac, char *av[])
 	if (vars.philo == NULL)
 		ft_error("No alocada memoria");
 	ft_init_philos(&vars);
+	check_philos(&vars);
 	ft_init_threads(&vars);
+	exit (1);
 }
