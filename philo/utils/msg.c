@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   msg.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ediaz--c <ediaz--c@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: ediaz--c <ediaz--c@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/22 19:10:58 by ediaz--c          #+#    #+#             */
-/*   Updated: 2023/07/07 12:19:30 by ediaz--c         ###   ########.fr       */
+/*   Updated: 2023/07/08 19:36:09 by ediaz--c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void	ft_philo_msg(t_philo *p, int format)
 		printf("\033[1;37m[%6ld] 🍴 philo %d take left fork\n\033[0m",
 			(ft_actual_time() - p->time), p->id);
 	else if (format == 2)
-		printf("\033[1;33m[%6ld] 🍽️ philo %d is eating\n\033[0m",
+		printf("\033[1;33m[%6ld] 🍽️  philo %d is eating\n\033[0m",
 			(ft_actual_time() - p->time), p->id);
 	else if (format == 3)
 		printf("\033[1;34m[%6ld] 💤 philo %d is sleeping\n\033[0m",

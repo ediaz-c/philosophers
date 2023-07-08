@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rutine.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ediaz--c <ediaz--c@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: ediaz--c <ediaz--c@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/23 19:09:44 by ediaz--c          #+#    #+#             */
-/*   Updated: 2023/07/07 12:26:57 by ediaz--c         ###   ########.fr       */
+/*   Updated: 2023/07/08 19:55:04 by ediaz--c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,9 @@ static int	ft_forks(t_philo *p, int take)
 				return (0);
 			ft_philo_msg(p, 0);
 			if (p->fork_right && pthread_mutex_lock(p->fork_right) == 0)
-			if (ft_check_dead(p))
-				return (0);
-				ft_philo_msg(p, 1);
+				if (ft_check_dead(p))
+					return (0);
+			ft_philo_msg(p, 1);
 		}
 	}
 	else
@@ -41,10 +41,15 @@ static int	ft_forks(t_philo *p, int take)
 
 static int	ft_eat(t_philo *p)
 {
+	int	i;
+
+	i = 0;
 	if (ft_check_dead(p))
 		return (0);
 	ft_philo_msg(p, 2);
+	pthread_mutex_lock(p->mod_philo);
 	p->last_eat = ft_actual_time();
+	pthread_mutex_unlock(p->mod_philo);
 	usleep(p->teat * 1000);
 	if (ft_check_dead(p))
 		return (0);
@@ -53,6 +58,7 @@ static int	ft_eat(t_philo *p)
 
 static int	ft_sleep(t_philo *p)
 {
+	usleep(100);
 	if (ft_check_dead(p))
 		return (0);
 	ft_philo_msg(p, 3);
@@ -85,9 +91,7 @@ void	*rutine(void *philo)
 		return (0);
 	while (++i != p->laps && p->is_dead != -1)
 	{
-		if (!ft_forks(p, 1))
-			break ;
-		if (!ft_eat(p))
+		if (!ft_forks(p, 1) || !ft_eat(p))
 			break ;
 		if (!ft_forks(p, 0))
 			break ;
@@ -96,6 +100,8 @@ void	*rutine(void *philo)
 		if (!ft_think(p))
 			break ;
 	}
+	pthread_mutex_lock(p->mod_philo);
 	p->laps = 0;
+	pthread_mutex_unlock(p->mod_philo);
 	return (0);
 }
