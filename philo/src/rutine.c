@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rutine.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ediaz--c <ediaz--c@student.42madrid>       +#+  +:+       +#+        */
+/*   By: ediaz--c <ediaz--c@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/23 19:09:44 by ediaz--c          #+#    #+#             */
-/*   Updated: 2023/07/08 19:55:04 by ediaz--c         ###   ########.fr       */
+/*   Updated: 2023/07/11 20:14:31 by ediaz--c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,9 +41,6 @@ static int	ft_forks(t_philo *p, int take)
 
 static int	ft_eat(t_philo *p)
 {
-	int	i;
-
-	i = 0;
 	if (ft_check_dead(p))
 		return (0);
 	ft_philo_msg(p, 2);

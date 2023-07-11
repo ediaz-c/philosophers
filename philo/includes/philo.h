@@ -6,7 +6,7 @@
 /*   By: ediaz--c <ediaz--c@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 18:29:06 by ediaz--c          #+#    #+#             */
-/*   Updated: 2023/07/08 18:57:28 by ediaz--c         ###   ########.fr       */
+/*   Updated: 2023/07/11 20:15:18 by Erick            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <sys/time.h>
-# include "../libft/libft.h"
+# include "../libft/includes/libft.h"
 
 typedef struct s_args
 {
