@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ediaz--c <ediaz--c@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: ediaz--c <ediaz--c@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 17:32:51 by ediaz--c          #+#    #+#             */
-/*   Updated: 2023/08/21 19:33:54 by ediaz--c         ###   ########.fr       */
+/*   Updated: 2023/08/22 16:57:28 by ediaz--c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ typedef struct s_philo
 	int				is_dead;
 	long int		last_eat;
 	int				laps;
-	int				first_eat;
+	int				first_to_eat;
 	int				n_eats;
 	long int		time;
 	int				tdie;
@@ -64,16 +64,20 @@ typedef struct s_vars
 }	t_vars;
 
 /* SRC */
-/** init.c **/
-void	ft_init_vars(t_vars *vars, char **argv, int argc);
+/** vars.c **/
+void			ft_init_vars(t_vars *vars, char **argv, int argc);
 
 /* UTILS */
 /** error.c **/
 /**Imprime un mensaje de error y sale con un "exit(1)"**/
-void	ft_error(char *error);
-void	ft_puterror_str(char *error, char *arg, int is_free);
+void			ft_error(char *error);
+void			ft_puterror_str(char *error, char *arg, int is_free);
 /** arguments.c **/
-void	ft_check_ac(int num_args);
-void	ft_check_argv(char **args);
-
+void			ft_check_ac(int num_args);
+void			ft_check_argv(char **args);
+/** time.c **/
+long int		ft_actual_time(void);
+/** mutex.c **/
+void			ft_init_mutex(pthread_mutex_t *mutex);
+pthread_mutex_t	*ft_create_mutex(void);
 #endif

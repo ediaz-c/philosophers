@@ -16,7 +16,7 @@ RM = rm -rf
 
 #FILES
 SRC			=	main.c vars.c
-UTILS		=	arguments.c error.c 
+UTILS		=	arguments.c error.c time.c mutex.c
 LIBFT		=	libft/libft.a
 
 # PATH

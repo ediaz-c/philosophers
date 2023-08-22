@@ -1,29 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   time.c                                             :+:      :+:    :+:   */
+/*   mutex.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ediaz--c <ediaz--c@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/23 19:44:30 by ediaz--c          #+#    #+#             */
-/*   Updated: 2023/08/22 16:27:14 by ediaz--c         ###   ########.fr       */
+/*   Created: 2023/08/22 16:34:46 by ediaz--c          #+#    #+#             */
+/*   Updated: 2023/08/22 16:57:21 by ediaz--c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/philo.h"
 
-long int	ft_actual_time(void)
+void	ft_init_mutex(pthread_mutex_t *mutex)
 {
-	long int		time;
-	struct timeval	current_time;
-
-	if (gettimeofday(&current_time, NULL) != 0)
-		ft_error("time error");
-	time = (current_time.tv_sec * 1000) + (current_time.tv_usec / 1000);
-	return (time);
+	if (pthread_mutex_init(mutex, NULL) != 0)
+		ft_error("Mutex error");
 }
 
-long int	ft_time(long int time_start)
+pthread_mutex_t	*ft_create_mutex(void)
 {
-	return (ft_actual_time() - time_start);
+	pthread_mutex_t	*mutex;
+
+	mutex = malloc(sizeof(pthread_mutex_t));
+	if (mutex == NULL)
+		ft_error("Error alocando mutex");
+	return (mutex);
 }
