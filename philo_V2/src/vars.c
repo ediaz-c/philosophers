@@ -6,7 +6,7 @@
 /*   By: ediaz--c <ediaz--c@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 19:20:57 by ediaz--c          #+#    #+#             */
-/*   Updated: 2023/08/23 13:04:46 by ediaz--c         ###   ########.fr       */
+/*   Updated: 2023/08/23 17:15:50 by ediaz--c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ static void	ft_init_philos(t_args *args, t_philo *p)
 		p[i].is_dead = 0;
 		p[i].time = args->time_init;
 		p[i].last_eat = 0;
-		p[i].laps = 0;
+		p[i].laps = -1;
 		p[i].first_to_eat = (p[i].id % 2 == 0);
 		p[i].n_eats = args->n_eats;
 		p[i].tdie = args->tdie;

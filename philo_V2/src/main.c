@@ -6,7 +6,7 @@
 /*   By: ediaz--c <ediaz--c@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 17:33:44 by ediaz--c          #+#    #+#             */
-/*   Updated: 2023/08/23 13:00:49 by ediaz--c         ###   ########.fr       */
+/*   Updated: 2023/08/23 18:28:30 by ediaz--c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,5 +99,5 @@ int	main(int ac, char *av[])
 	ft_check_argv(av);
 	ft_init_vars(&vars, av, ac);
 	ft_init_philosophers(&vars);
-	check(&vars);
+	// check(&vars);
 }
