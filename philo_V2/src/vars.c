@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   vars.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ediaz--c <ediaz--c@student.42madrid>       +#+  +:+       +#+        */
+/*   By: ediaz--c <ediaz--c@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 19:20:57 by ediaz--c          #+#    #+#             */
-/*   Updated: 2023/08/22 16:58:42 by ediaz--c         ###   ########.fr       */
+/*   Updated: 2023/08/23 13:04:46 by ediaz--c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static void	ft_init_argv(t_args *args, char **argv, int argc)
 	if (argc == 6)
 		args->n_eats = ft_atoi(argv[5]);
 	else
-		args->n_eats = -1;
+		args->n_eats = UNLIMITED;
 }
 
 static void	ft_philo_mutex(t_args *args, t_philo *p)
@@ -54,11 +54,11 @@ static void	ft_init_philos(t_args *args, t_philo *p)
 	{
 		p[i].id = i + 1;
 		p[i].is_dead = 0;
-		p[i].last_eat = args->time_init;
+		p[i].time = args->time_init;
+		p[i].last_eat = 0;
 		p[i].laps = 0;
 		p[i].first_to_eat = (p[i].id % 2 == 0);
 		p[i].n_eats = args->n_eats;
-		p[i].time = args->time_init;
 		p[i].tdie = args->tdie;
 		p[i].teat = args->teat;
 		p[i].tsleep = args->tsleep;

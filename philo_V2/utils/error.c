@@ -6,7 +6,7 @@
 /*   By: ediaz--c <ediaz--c@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 17:36:48 by ediaz--c          #+#    #+#             */
-/*   Updated: 2023/08/21 19:18:29 by ediaz--c         ###   ########.fr       */
+/*   Updated: 2023/08/22 18:45:20 by ediaz--c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	ft_error(char *error)
 	exit(1);
 }
 
-void	ft_puterror_str(char *error, char *arg, int is_free)
+void	ft_puterror_arg(char *error, char *arg, int is_free)
 {
 	printf(RED"%s:"OFF" %s\n", error, arg);
 	if (is_free)

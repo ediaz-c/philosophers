@@ -1,6 +1,6 @@
 NAME		=	philo
 CC			=	gcc
-CFLAGS		=	-Wall -Werror -Wextra
+CFLAGS		=	-Wall -Werror -Wextra -g3
 
 # DEBUG
 DEBUG		=	-g3
@@ -15,8 +15,8 @@ THREAD	= 	-fsanitize=thread
 RM = rm -rf
 
 #FILES
-SRC			=	main.c vars.c
-UTILS		=	arguments.c error.c time.c mutex.c
+SRC			=	main.c vars.c rutine.c actions.c dead.c
+UTILS		=	arguments.c error.c time.c mutex.c philos_utils.c dead_utils.c
 LIBFT		=	libft/libft.a
 
 # PATH
@@ -31,7 +31,8 @@ all:	$(NAME)
 $(NAME):	$(LIBFT) $(OBJ)
 	@$(CC) $(CFLAGS) $(OBJ) $(LIBFT) -o $(NAME)
 $(LIBFT):
-	@if [ -f ./libft/libft.a ]; then; else make -C libft; fi
+	#@if [ -f ./libft/libft.a ]; then; else make -C libft; fi;
+	@make -C libft
 
 norm:
 	@norminette

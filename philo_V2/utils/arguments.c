@@ -6,7 +6,7 @@
 /*   By: ediaz--c <ediaz--c@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 18:32:31 by ediaz--c          #+#    #+#             */
-/*   Updated: 2023/08/21 19:10:03 by ediaz--c         ###   ########.fr       */
+/*   Updated: 2023/08/22 18:45:20 by ediaz--c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ static int	ft_is_valid_number(char *number)
 			return (0);
 	}
 	if (!ft_limits_number(number))
-		ft_puterror_str("Numero fuera de los limites", number, 0);
+		ft_puterror_arg("Numero fuera de los limites", number, 0);
 	return (1);
 }
 
@@ -68,7 +68,7 @@ void	ft_check_argv(char **args)
 	{
 		n_tmp = ft_strtrim(args[i], " \t\n");
 		if (!ft_is_valid_number(n_tmp))
-			ft_puterror_str("Argumento invalido", n_tmp, 1);
+			ft_puterror_arg("Argumento invalido", n_tmp, 1);
 		free(n_tmp);
 	}
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mutex.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ediaz--c <ediaz--c@student.42madrid>       +#+  +:+       +#+        */
+/*   By: ediaz--c <ediaz--c@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 16:34:46 by ediaz--c          #+#    #+#             */
-/*   Updated: 2023/08/22 16:57:21 by ediaz--c         ###   ########.fr       */
+/*   Updated: 2023/08/23 12:15:51 by ediaz--c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,4 +26,18 @@ pthread_mutex_t	*ft_create_mutex(void)
 	if (mutex == NULL)
 		ft_error("Error alocando mutex");
 	return (mutex);
+}
+
+void	ft_mod_int_values(t_philo *p, int *tochange, int value)
+{
+	pthread_mutex_lock(p->mod);
+	*tochange = value;
+	pthread_mutex_unlock(p->mod);
+}
+
+void	ft_mod_long_values(t_philo *p, long int *tochange, long int value)
+{
+	pthread_mutex_lock(p->mod);
+	*tochange = value;
+	pthread_mutex_unlock(p->mod);
 }
