@@ -16,8 +16,7 @@ RM = rm -rf
 
 #FILES
 SRC			=	main.c vars.c rutine.c actions.c dead.c
-UTILS		=	arguments.c error.c time.c mutex.c philos_utils.c dead_utils.c
-LIBFT		=	libft/libft.a
+UTILS		=	arguments.c error.c time.c mutex.c philos_utils.c dead_utils.c ft_utils.c ft_strtrim.c ft_substr.c ft_strdup.c
 
 # PATH
 SRC_PATH	=	$(addprefix src/, $(SRC))
@@ -28,32 +27,18 @@ OBJ			=	$(SRC_PATH:.c=.o) $(UTILS_PATH:.c=.o)
 
 all:	$(NAME)
 
-$(NAME):	$(LIBFT) $(OBJ)
-	@$(CC) $(CFLAGS) $(OBJ) $(LIBFT) -o $(NAME)
-$(LIBFT):
-	#@if [ -f ./libft/libft.a ]; then; else make -C libft; fi;
-	@make -C libft
+$(NAME):	$(OBJ)
+	@$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
 
 norm:
 	@norminette
 
-s_address: all
-	@$(CC) $(CFLAGS) $(ADDRESS) $(LIBFT) $(OBJ) -o $(NAME)
-
-s_thread: all
-	@$(CC) $(CFLAGS) $(THREAD) $(LIBFT) $(OBJ) -o $(NAME)
-
-debug:	all
-	@$(CC) $(CFLAGS) $(DEBUG) $(LIBFT) $(OBJ) -o $(NAME)
-
 clean:
 	@$(RM) $(OBJ)
-	@make clean -C libft
 
 fclean: clean
 	@$(RM) $(NAME)
-	@make fclean -C libft
 
 re: fclean all
 
-.PHONY: re clean fclean norm s_address s_thread
+.PHONY: re clean fclean norm

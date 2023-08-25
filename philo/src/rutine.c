@@ -6,7 +6,7 @@
 /*   By: ediaz--c <ediaz--c@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 19:07:52 by ediaz--c          #+#    #+#             */
-/*   Updated: 2023/08/25 15:41:34 by ediaz--c         ###   ########.fr       */
+/*   Updated: 2023/08/25 17:58:38 by ediaz--c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,8 @@ static void	ft_finish_philo(t_philo *p, int laps)
 void	*philo_rutine(void *philo)
 {
 	t_philo	*p;
-	int	laps;
-	int	i;
+	int		laps;
+	int		i;
 
 	p = philo;
 	laps = p->n_eats;
@@ -51,8 +51,6 @@ void	*philo_rutine(void *philo)
 		if (!ft_take_forks(p))
 			break ;
 		if (!ft_eat(p))
-			break ;
-		if (!ft_drop_forks(p))
 			break ;
 		if (!ft_sleep(p))
 			break ;

@@ -6,7 +6,7 @@
 /*   By: ediaz--c <ediaz--c@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 19:22:41 by ediaz--c          #+#    #+#             */
-/*   Updated: 2023/08/25 14:00:20 by ediaz--c         ###   ########.fr       */
+/*   Updated: 2023/08/25 18:02:06 by ediaz--c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,17 @@ void	ft_unlock_all(t_philo *p)
 		pthread_mutex_unlock(p->fork_right);
 }
 
-void ft_wait_to_eat(t_philo *p)
+void	ft_wait_to_eat(t_philo *p)
 {
 	if (!p->first_to_eat)
 		usleep(1000);
+}
+
+void	ft_all_zero(t_args *args)
+{
+	int	i;
+
+	i = -1;
+	while (++i < args->n_philo)
+		args->id_finish[i] = 0;
 }

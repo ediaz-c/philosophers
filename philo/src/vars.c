@@ -6,18 +6,23 @@
 /*   By: ediaz--c <ediaz--c@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 19:20:57 by ediaz--c          #+#    #+#             */
-/*   Updated: 2023/08/25 14:19:10 by ediaz--c         ###   ########.fr       */
+/*   Updated: 2023/08/25 17:59:53 by ediaz--c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/philo.h"
 
+/* arreglar returns*/
 static void	ft_init_argv(t_args *args, char **argv, int argc)
 {
 	args->n_philo = ft_atoi(argv[1]);
 	args->tdie = ft_atoi(argv[2]);
 	args->teat = ft_atoi(argv[3]);
 	args->tsleep = ft_atoi(argv[4]);
+	args->id_finish = malloc(sizeof(int) * args->n_philo);
+	if (args->id_finish == NULL)
+		return ;
+	ft_all_zero(args);
 	if (argc == 6)
 		args->n_eats = ft_atoi(argv[5]);
 	else
@@ -28,17 +33,15 @@ static void	ft_philo_mutex(t_args *args, t_philo *p)
 {
 	int				i;
 	pthread_mutex_t	write_status;
-	
+
 	i = -1;
 	ft_init_mutex(&write_status);
-	while(++i < args->n_philo)
+	while (++i < args->n_philo)
 	{
 		p[i].mod = ft_create_mutex();
 		p[i].mod_die = ft_create_mutex();
-		p[i].mod_leat = ft_create_mutex();
 		ft_init_mutex(p[i].mod);
 		ft_init_mutex(p[i].mod_die);
-		ft_init_mutex(p[i].mod_leat);
 		ft_init_mutex(&p[i].fork_left);
 		p[i].print = &write_status;
 		if (args->n_philo == 1)
@@ -54,7 +57,7 @@ static void	ft_init_philos(t_args *args, t_philo *p)
 
 	i = -1;
 	args->time_init = ft_actual_time();
-	while(++i < args->n_philo)
+	while (++i < args->n_philo)
 	{
 		p[i].id = i + 1;
 		p[i].is_dead = 0;

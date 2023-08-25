@@ -1,29 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   time.c                                             :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ediaz--c <ediaz--c@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/22 16:20:45 by ediaz--c          #+#    #+#             */
-/*   Updated: 2023/08/25 18:00:48 by ediaz--c         ###   ########.fr       */
+/*   Created: 2023/08/25 17:44:08 by ediaz--c          #+#    #+#             */
+/*   Updated: 2023/08/25 18:01:53 by ediaz--c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/philo.h"
 
-long int	ft_actual_time(void)
+char	*ft_strdup(const char *s)
 {
-	long int		time;
-	struct timeval	current_time;
+	int		i;
+	char	*str;
+	char	*cpy;
 
-	if (gettimeofday(&current_time, NULL) != 0)
-		ft_error("Time error");
-	time = (current_time.tv_sec * 1000) + (current_time.tv_usec / 1000);
-	return (time);
-}
-
-long int	ft_timer(t_philo *p)
-{
-	return (ft_actual_time() - p->time);
+	str = (char *)s;
+	i = ft_strlen(str) + 1;
+	cpy = (char *)malloc (sizeof(char) * i);
+	if (cpy == NULL)
+		return (0);
+	i = 0;
+	while (str[i] != '\0')
+	{
+		cpy[i] = str[i];
+		i++;
+	}
+	cpy[i] = '\0';
+	return (cpy);
 }

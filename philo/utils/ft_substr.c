@@ -1,29 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   time.c                                             :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ediaz--c <ediaz--c@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/22 16:20:45 by ediaz--c          #+#    #+#             */
-/*   Updated: 2023/08/25 18:00:48 by ediaz--c         ###   ########.fr       */
+/*   Created: 2023/08/25 17:44:45 by ediaz--c          #+#    #+#             */
+/*   Updated: 2023/08/25 18:00:57 by ediaz--c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/philo.h"
 
-long int	ft_actual_time(void)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	long int		time;
-	struct timeval	current_time;
+	size_t	i;
+	char	*str;
 
-	if (gettimeofday(&current_time, NULL) != 0)
-		ft_error("Time error");
-	time = (current_time.tv_sec * 1000) + (current_time.tv_usec / 1000);
-	return (time);
-}
-
-long int	ft_timer(t_philo *p)
-{
-	return (ft_actual_time() - p->time);
+	i = 0;
+	if (!s)
+		return (0);
+	if ((size_t)start >= ft_strlen(s))
+		return (ft_strdup(""));
+	if (len > (ft_strlen(s) - start))
+		len = ft_strlen(s) - start;
+	str = (char *)malloc (sizeof(char) * (len + 1));
+	if (!str)
+		return (0);
+	while (i < len)
+	{
+		str[i] = s[start + i];
+		i++;
+	}
+	str[i] = '\0';
+	return (str);
 }

@@ -6,7 +6,7 @@
 /*   By: ediaz--c <ediaz--c@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 18:32:31 by ediaz--c          #+#    #+#             */
-/*   Updated: 2023/08/22 18:45:20 by ediaz--c         ###   ########.fr       */
+/*   Updated: 2023/08/25 18:01:38 by ediaz--c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ static int	ft_limits_number(char *number)
 
 	i = 0;
 	nb = 0;
-	while(number[i])
+	while (number[i])
 	{
 		nb = (nb * 10) + (number[i] - '0');
 		i++;
@@ -46,7 +46,7 @@ static int	ft_limits_number(char *number)
 static int	ft_is_valid_number(char *number)
 {
 	int		i;
-	
+
 	i = 0;
 	while (number[i])
 	{
@@ -64,7 +64,7 @@ void	ft_check_argv(char **args)
 	int		i;
 
 	i = 0;
-	while(args[++i])
+	while (args[++i])
 	{
 		n_tmp = ft_strtrim(args[i], " \t\n");
 		if (!ft_is_valid_number(n_tmp))

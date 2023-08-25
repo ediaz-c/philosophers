@@ -6,7 +6,7 @@
 /*   By: ediaz--c <ediaz--c@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 17:32:51 by ediaz--c          #+#    #+#             */
-/*   Updated: 2023/08/25 14:18:42 by ediaz--c         ###   ########.fr       */
+/*   Updated: 2023/08/25 17:50:48 by ediaz--c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@
 # include <stdlib.h>
 # include <pthread.h>
 # include <sys/time.h>
-# include "../libft/includes/libft.h"
+// # include "../libft/includes/libft.h"
 
 typedef struct s_args
 {
@@ -42,6 +42,7 @@ typedef struct s_args
 	int			teat;
 	int			tsleep;
 	int			n_eats;
+	int			*id_finish;
 	long int	time_init;
 }	t_args;
 
@@ -60,7 +61,6 @@ typedef struct s_philo
 	pthread_t		tid;
 	pthread_mutex_t	*mod;
 	pthread_mutex_t	*mod_die;
-	pthread_mutex_t	*mod_leat;
 	pthread_mutex_t	*print;
 	pthread_mutex_t	*fork_right;
 	pthread_mutex_t	fork_left;
@@ -68,8 +68,8 @@ typedef struct s_philo
 
 typedef struct s_vars
 {
-	t_args args;
-	t_philo *philos;
+	t_args	args;
+	t_philo	*philos;
 }	t_vars;
 
 /* SRC */
@@ -80,12 +80,12 @@ void			*philo_rutine(void *philo);
 int				ft_is_dead(t_philo *p);
 /** actions.c **/
 int				ft_take_forks(t_philo *p);
-int 			ft_drop_forks(t_philo *p);
+int				ft_drop_forks(t_philo *p);
 int				ft_eat(t_philo *p);
 int				ft_sleep(t_philo *p);
 int				ft_think(t_philo *p);
 /** dead.c **/
-void	ft_check_dead(t_args *args, t_philo *p);
+void			ft_check_dead(t_args *args, t_philo *p);
 /* UTILS */
 /** error.c **/
 /**Imprime un mensaje de error y sale con un "exit(1)"**/
@@ -101,7 +101,8 @@ long int		ft_timer(t_philo *p);
 void			ft_init_mutex(pthread_mutex_t *mutex);
 pthread_mutex_t	*ft_create_mutex(void);
 void			ft_mod_int_values(t_philo *p, int *tochange, int value);
-void			ft_mod_long_values(t_philo *p, long int *tochange, long int value);
+void			ft_mod_long_values(t_philo *p, long int *tochange,
+					long int value);
 /** philos_utils.c **/
 /**
 Action:
@@ -112,10 +113,23 @@ Action:
 - 5: Pensar
 - 6: Muerte
 **/
-int			ft_philo_msg(t_philo *p, char *msg, int action);
+int				ft_philo_msg(t_philo *p, char *msg, int action);
 int				ft_philo_alone(t_philo *p);
 void			ft_unlock_all(t_philo *p);
-void			 ft_wait_to_eat(t_philo *p);
+void			ft_wait_to_eat(t_philo *p);
+void			ft_all_zero(t_args *args);
 /** dead_utils.c **/
 void			ft_notify_philos(t_args *args, t_philo *p);
+
+/** ft_utils.c **/
+int				ft_atoi(const char *str);
+int				ft_isdigit(int c);
+size_t			ft_strlen(const char *s);
+char			*ft_strchr(const char *str, int c);
+/** ft_strtrim.c **/
+char			*ft_strtrim(char const *str, char const *set);
+/** ft_strdup.c **/
+char			*ft_strdup(const char *s);
+/** ft_substr.c **/
+char			*ft_substr(char const *s, unsigned int start, size_t len);
 #endif

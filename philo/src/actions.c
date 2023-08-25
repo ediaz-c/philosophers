@@ -6,7 +6,7 @@
 /*   By: ediaz--c <ediaz--c@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 19:05:02 by ediaz--c          #+#    #+#             */
-/*   Updated: 2023/08/25 14:19:23 by ediaz--c         ###   ########.fr       */
+/*   Updated: 2023/08/25 17:55:42 by ediaz--c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	ft_take_forks(t_philo *p)
 	return (0);
 }
 
-int ft_drop_forks(t_philo *p)
+int	ft_drop_forks(t_philo *p)
 {
 	pthread_mutex_unlock(&p->fork_left);
 	if (p->fork_right != NULL)
@@ -42,11 +42,11 @@ int	ft_eat(t_philo *p)
 {
 	if (ft_philo_msg(p, "is eating", COMER) == 0)
 		return (0);
-	pthread_mutex_lock(p->mod_leat);
+	pthread_mutex_lock(p->mod);
 	p->last_eat = ft_timer(p);
-	pthread_mutex_unlock(p->mod_leat);
+	pthread_mutex_unlock(p->mod);
 	usleep(p->teat * 1000);
-	return (1);
+	return (ft_drop_forks(p), 1);
 }
 
 int	ft_sleep(t_philo *p)
