@@ -6,15 +6,22 @@
 /*   By: ediaz--c <ediaz--c@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 19:22:41 by ediaz--c          #+#    #+#             */
-/*   Updated: 2023/08/23 16:42:24 by ediaz--c         ###   ########.fr       */
+/*   Updated: 2023/08/25 14:00:20 by ediaz--c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/philo.h"
 
-void	ft_philo_msg(t_philo *p, char *msg, int action)
+int	ft_philo_msg(t_philo *p, char *msg, int action)
 {
+	if (ft_is_dead(p) && action != MORIR)
+		return (0);
 	pthread_mutex_lock(p->print);
+	if (ft_is_dead(p) && action != MORIR)
+	{
+		pthread_mutex_unlock(p->print);
+		return (0);
+	}
 	if (action == LEFT)
 		printf(BWHITE"[%ld] Philo %d %s\n"OFF, ft_timer(p), p->id, msg);
 	else if (action == RIGHT)
@@ -28,6 +35,9 @@ void	ft_philo_msg(t_philo *p, char *msg, int action)
 	else if (action == MORIR)
 		printf(BRED"[%ld] Philo %d %s\n"OFF, ft_timer(p), p->id, msg);
 	pthread_mutex_unlock(p->print);
+	if (ft_is_dead(p))
+		return (0);
+	return (1);
 }
 
 void	ft_unlock_all(t_philo *p)
@@ -35,4 +45,10 @@ void	ft_unlock_all(t_philo *p)
 	pthread_mutex_unlock(&p->fork_left);
 	if (p->fork_right != NULL)
 		pthread_mutex_unlock(p->fork_right);
+}
+
+void ft_wait_to_eat(t_philo *p)
+{
+	if (!p->first_to_eat)
+		usleep(1000);
 }

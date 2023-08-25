@@ -1,0 +1,207 @@
+[1;37m[0] Philo 2 has taken the left fork
+[0m[1;37m[0] Philo 2 has taken the right fork
+[0m[1;33m[0] Philo 2 is eating
+[0m[1;37m[0] Philo 4 has taken the left fork
+[0m[1;37m[0] Philo 4 has taken the right fork
+[0m[1;33m[0] Philo 4 is eating
+[0m[1;34m[205] Philo 2 is sleeping
+[0m[1;37m[205] Philo 3 has taken the left fork
+[0m[1;37m[205] Philo 1 has taken the left fork
+[0m[1;37m[205] Philo 3 has taken the right fork
+[0m[1;37m[205] Philo 1 has taken the right fork
+[0m[1;33m[205] Philo 1 is eating
+[0m[1;34m[205] Philo 4 is sleeping
+[0m[1;33m[205] Philo 3 is eating
+[0m[1;34m[410] Philo 1 is sleeping
+[0m[1;32m[410] Philo 2 is thinking
+[0m[1;37m[410] Philo 2 has taken the left fork
+[0m[1;32m[410] Philo 4 is thinking
+[0m[1;34m[410] Philo 3 is sleeping
+[0m[1;37m[410] Philo 2 has taken the right fork
+[0m[1;37m[410] Philo 4 has taken the left fork
+[0m[1;37m[410] Philo 4 has taken the right fork
+[0m[1;33m[410] Philo 2 is eating
+[0m[1;33m[410] Philo 4 is eating
+[0m[1;32m[612] Philo 3 is thinking
+[0m[1;34m[612] Philo 2 is sleeping
+[0m[1;34m[612] Philo 4 is sleeping
+[0m[1;32m[612] Philo 1 is thinking
+[0m[1;37m[612] Philo 3 has taken the left fork
+[0m[1;37m[612] Philo 1 has taken the left fork
+[0m[1;37m[612] Philo 1 has taken the right fork
+[0m[1;37m[612] Philo 3 has taken the right fork
+[0m[1;33m[612] Philo 1 is eating
+[0m[1;33m[612] Philo 3 is eating
+[0m[1;34m[812] Philo 3 is sleeping
+[0m[1;34m[812] Philo 1 is sleeping
+[0m[1;32m[812] Philo 4 is thinking
+[0m[1;32m[812] Philo 2 is thinking
+[0m[1;37m[812] Philo 4 has taken the left fork
+[0m[1;37m[812] Philo 2 has taken the left fork
+[0m[1;37m[812] Philo 4 has taken the right fork
+[0m[1;33m[812] Philo 4 is eating
+[0m[1;37m[812] Philo 2 has taken the right fork
+[0m[1;33m[812] Philo 2 is eating
+[0m[1;32m[1013] Philo 1 is thinking
+[0m[1;34m[1013] Philo 4 is sleeping
+[0m[1;32m[1013] Philo 3 is thinking
+[0m[1;37m[1013] Philo 1 has taken the left fork
+[0m[1;37m[1013] Philo 3 has taken the left fork
+[0m[1;34m[1013] Philo 2 is sleeping
+[0m[1;37m[1013] Philo 1 has taken the right fork
+[0m[1;37m[1013] Philo 3 has taken the right fork
+[0m[1;33m[1013] Philo 1 is eating
+[0m[1;33m[1013] Philo 3 is eating
+[0m[1;32m[1218] Philo 4 is thinking
+[0m[1;32m[1218] Philo 2 is thinking
+[0m[1;34m[1218] Philo 1 is sleeping
+[0m[1;34m[1218] Philo 3 is sleeping
+[0m[1;37m[1218] Philo 2 has taken the left fork
+[0m[1;37m[1218] Philo 2 has taken the right fork
+[0m[1;33m[1218] Philo 2 is eating
+[0m[1;37m[1218] Philo 4 has taken the left fork
+[0m[1;37m[1218] Philo 4 has taken the right fork
+[0m[1;33m[1218] Philo 4 is eating
+[0m[1;32m[1419] Philo 1 is thinking
+[0m[1;34m[1419] Philo 2 is sleeping
+[0m[1;32m[1419] Philo 3 is thinking
+[0m[1;34m[1419] Philo 4 is sleeping
+[0m[1;37m[1419] Philo 1 has taken the left fork
+[0m[1;37m[1419] Philo 3 has taken the left fork
+[0m[1;37m[1419] Philo 3 has taken the right fork
+[0m[1;37m[1419] Philo 1 has taken the right fork
+[0m[1;33m[1419] Philo 3 is eating
+[0m[1;33m[1419] Philo 1 is eating
+[0m[1;32m[1622] Philo 4 is thinking
+[0m[1;37m[1622] Philo 4 has taken the left fork
+[0m[1;34m[1622] Philo 1 is sleeping
+[0m[1;34m[1622] Philo 3 is sleeping
+[0m[1;37m[1622] Philo 4 has taken the right fork
+[0m[1;32m[1622] Philo 2 is thinking
+[0m[1;33m[1622] Philo 4 is eating
+[0m[1;37m[1622] Philo 2 has taken the left fork
+[0m[1;37m[1622] Philo 2 has taken the right fork
+[0m[1;33m[1622] Philo 2 is eating
+[0m[1;32m[1822] Philo 1 is thinking
+[0m[1;37m[1822] Philo 1 has taken the left fork
+[0m[1;34m[1822] Philo 2 is sleeping
+[0m[1;34m[1822] Philo 4 is sleeping
+[0m[1;37m[1822] Philo 1 has taken the right fork
+[0m[1;33m[1822] Philo 1 is eating
+[0m[1;32m[1822] Philo 3 is thinking
+[0m[1;37m[1822] Philo 3 has taken the left fork
+[0m[1;37m[1822] Philo 3 has taken the right fork
+[0m[1;33m[1822] Philo 3 is eating
+[0m[1;34m[2023] Philo 1 is sleeping
+[0m[1;34m[2023] Philo 3 is sleeping
+[0m[1;32m[2023] Philo 2 is thinking
+[0m[1;32m[2023] Philo 4 is thinking
+[0m[1;37m[2023] Philo 2 has taken the left fork
+[0m[1;37m[2023] Philo 4 has taken the left fork
+[0m[1;37m[2023] Philo 2 has taken the right fork
+[0m[1;33m[2023] Philo 2 is eating
+[0m[1;37m[2023] Philo 4 has taken the right fork
+[0m[1;33m[2023] Philo 4 is eating
+[0m[1;32m[2224] Philo 1 is thinking
+[0m[1;32m[2224] Philo 3 is thinking
+[0m[1;34m[2228] Philo 4 is sleeping
+[0m[1;37m[2228] Philo 3 has taken the left fork
+[0m[1;37m[2228] Philo 3 has taken the right fork
+[0m[1;34m[2228] Philo 2 is sleeping
+[0m[1;33m[2228] Philo 3 is eating
+[0m[1;37m[2228] Philo 1 has taken the left fork
+[0m[1;37m[2228] Philo 1 has taken the right fork
+[0m[1;33m[2228] Philo 1 is eating
+[0m[1;34m[2428] Philo 3 is sleeping
+[0m[1;32m[2432] Philo 4 is thinking
+[0m[1;37m[2432] Philo 4 has taken the left fork
+[0m[1;34m[2432] Philo 1 is sleeping
+[0m[1;37m[2432] Philo 4 has taken the right fork
+[0m[1;33m[2432] Philo 4 is eating
+[0m[1;32m[2432] Philo 2 is thinking
+[0m[1;37m[2432] Philo 2 has taken the left fork
+[0m[1;37m[2432] Philo 2 has taken the right fork
+[0m[1;33m[2432] Philo 2 is eating
+[0m[1;32m[2628] Philo 3 is thinking
+[0m[1;34m[2634] Philo 4 is sleeping
+[0m[1;32m[2634] Philo 1 is thinking
+[0m[1;34m[2634] Philo 2 is sleeping
+[0m[1;37m[2634] Philo 3 has taken the left fork
+[0m[1;37m[2634] Philo 3 has taken the right fork
+[0m[1;37m[2634] Philo 1 has taken the left fork
+[0m[1;37m[2634] Philo 1 has taken the right fork
+[0m[1;33m[2634] Philo 1 is eating
+[0m[1;33m[2634] Philo 3 is eating
+[0m[1;34m[2836] Philo 3 is sleeping
+[0m[1;32m[2836] Philo 4 is thinking
+[0m[1;37m[2836] Philo 4 has taken the left fork
+[0m[1;32m[2836] Philo 2 is thinking
+[0m[1;34m[2836] Philo 1 is sleeping
+[0m[1;37m[2836] Philo 4 has taken the right fork
+[0m[1;37m[2836] Philo 2 has taken the left fork
+[0m[1;33m[2836] Philo 4 is eating
+[0m[1;37m[2836] Philo 2 has taken the right fork
+[0m[1;33m[2836] Philo 2 is eating
+[0m[1;32m[3040] Philo 3 is thinking
+[0m[1;32m[3041] Philo 1 is thinking
+[0m[1;34m[3041] Philo 4 is sleeping
+[0m[1;37m[3041] Philo 3 has taken the left fork
+[0m[1;34m[3041] Philo 2 is sleeping
+[0m[1;37m[3041] Philo 3 has taken the right fork
+[0m[1;37m[3041] Philo 1 has taken the left fork
+[0m[1;37m[3042] Philo 1 has taken the right fork
+[0m[1;33m[3041] Philo 3 is eating
+[0m[1;33m[3042] Philo 1 is eating
+[0m[1;32m[3242] Philo 2 is thinking
+[0m[1;34m[3242] Philo 3 is sleeping
+[0m[1;34m[3242] Philo 1 is sleeping
+[0m[1;37m[3242] Philo 2 has taken the left fork
+[0m[1;32m[3242] Philo 4 is thinking
+[0m[1;37m[3242] Philo 2 has taken the right fork
+[0m[1;33m[3242] Philo 2 is eating
+[0m[1;37m[3242] Philo 4 has taken the left fork
+[0m[1;37m[3242] Philo 4 has taken the right fork
+[0m[1;33m[3242] Philo 4 is eating
+[0m[1;34m[3442] Philo 2 is sleeping
+[0m[1;32m[3442] Philo 1 is thinking
+[0m[1;32m[3442] Philo 3 is thinking
+[0m[1;34m[3442] Philo 4 is sleeping
+[0m[1;37m[3442] Philo 3 has taken the left fork
+[0m[1;37m[3442] Philo 3 has taken the right fork
+[0m[1;33m[3442] Philo 3 is eating
+[0m[1;37m[3442] Philo 1 has taken the left fork
+[0m[1;37m[3442] Philo 1 has taken the right fork
+[0m[1;33m[3442] Philo 1 is eating
+[0m[1;34m[3643] Philo 1 is sleeping
+[0m[1;32m[3643] Philo 2 is thinking
+[0m[1;34m[3643] Philo 3 is sleeping
+[0m[1;32m[3643] Philo 4 is thinking
+[0m[1;37m[3643] Philo 2 has taken the left fork
+[0m[1;37m[3643] Philo 4 has taken the left fork
+[0m[1;37m[3643] Philo 4 has taken the right fork
+[0m[1;33m[3643] Philo 4 is eating
+[0m[1;37m[3643] Philo 2 has taken the right fork
+[0m[1;33m[3643] Philo 2 is eating
+[0m[1;34m[3846] Philo 2 is sleeping
+[0m[1;34m[3846] Philo 4 is sleeping
+[0m[1;32m[3846] Philo 3 is thinking
+[0m[1;37m[3846] Philo 3 has taken the left fork
+[0m[1;37m[3846] Philo 3 has taken the right fork
+[0m[1;33m[3846] Philo 3 is eating
+[0m[1;32m[3848] Philo 1 is thinking
+[0m[1;37m[3848] Philo 1 has taken the left fork
+[0m[1;37m[3848] Philo 1 has taken the right fork
+[0m[1;33m[3848] Philo 1 is eating
+[0m[1;32m[4047] Philo 4 is thinking
+[0m[1;32m[4047] Philo 2 is thinking
+[0m[1;34m[4047] Philo 3 is sleeping
+[0m[1;37m[4047] Philo 4 has taken the left fork
+[0m[1;37m[4053] Philo 2 has taken the left fork
+[0m[1;34m[4053] Philo 1 is sleeping
+[0m[1;37m[4053] Philo 4 has taken the right fork
+[0m[1;33m[4053] Philo 4 is eating
+[0m[1;37m[4053] Philo 2 has taken the right fork
+[0m[1;33m[4053] Philo 2 is eating
+[0m[1;32m[4252] Philo 3 is thinking
+[0m[1;31m[4257] Philo 3 is dead
+[0m

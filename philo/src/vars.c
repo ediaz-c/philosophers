@@ -6,7 +6,7 @@
 /*   By: ediaz--c <ediaz--c@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 19:20:57 by ediaz--c          #+#    #+#             */
-/*   Updated: 2023/08/23 17:15:50 by ediaz--c         ###   ########.fr       */
+/*   Updated: 2023/08/25 14:19:10 by ediaz--c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,11 @@ static void	ft_philo_mutex(t_args *args, t_philo *p)
 	while(++i < args->n_philo)
 	{
 		p[i].mod = ft_create_mutex();
+		p[i].mod_die = ft_create_mutex();
+		p[i].mod_leat = ft_create_mutex();
 		ft_init_mutex(p[i].mod);
+		ft_init_mutex(p[i].mod_die);
+		ft_init_mutex(p[i].mod_leat);
 		ft_init_mutex(&p[i].fork_left);
 		p[i].print = &write_status;
 		if (args->n_philo == 1)
@@ -56,7 +60,7 @@ static void	ft_init_philos(t_args *args, t_philo *p)
 		p[i].is_dead = 0;
 		p[i].time = args->time_init;
 		p[i].last_eat = 0;
-		p[i].laps = -1;
+		p[i].laps = 0;
 		p[i].first_to_eat = (p[i].id % 2 == 0);
 		p[i].n_eats = args->n_eats;
 		p[i].tdie = args->tdie;

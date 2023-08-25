@@ -1,26 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   dead_utils.c                                       :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ediaz--c <ediaz--c@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/23 11:38:44 by ediaz--c          #+#    #+#             */
-/*   Updated: 2023/08/23 17:57:07 by ediaz--c         ###   ########.fr       */
+/*   Created: 2023/03/08 19:39:18 by ediaz--c          #+#    #+#             */
+/*   Updated: 2023/08/24 19:11:27 by ediaz--c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/philo.h"
+#include "../includes/libft.h"
 
-void	ft_notify_philos(t_args *args, t_philo *p)
+int	ft_atoi(const char *str)
 {
 	int	i;
+	int	sg;
+	int	nb;
 
-	i = -1;
-	while (++i < args->n_philo)
+	i = 0;
+	sg = 1;
+	nb = 0;
+	while ((str[i] >= '\t' && str[i] <= '\r')
+		|| str[i] == ' ')
+		i++;
+	if (str[i] == '-' || str[i] == '+')
 	{
-		pthread_mutex_lock(p[i].mod);
-		p[i].is_dead = -1;
-		pthread_mutex_unlock(p[i].mod);
+		if (str[i] == '-')
+			sg *= -1;
+		i++;
 	}
+	while (str[i] >= '0' && str[i] <= '9')
+	{
+		nb = (nb * 10) + (str[i] - '0');
+		i++;
+	}
+	return (nb * sg);
 }

@@ -6,7 +6,7 @@
 /*   By: ediaz--c <ediaz--c@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/23 11:48:49 by ediaz--c          #+#    #+#             */
-/*   Updated: 2023/08/23 17:56:33 by ediaz--c         ###   ########.fr       */
+/*   Updated: 2023/08/25 15:40:01 by ediaz--c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,6 @@
 
 static int	ft_philo_dead(t_philo *p, int id)
 {
-	pthread_mutex_lock(p[id].mod);
-	p[id].is_dead = 1;
-	pthread_mutex_unlock(p[id].mod);
 	ft_philo_msg(&p[id], "is dead", 6);
 	return (0);
 }
@@ -24,20 +21,28 @@ static int	ft_philo_dead(t_philo *p, int id)
 static int	ft_check_time_to_die(t_args *args, t_philo *p)
 {
 	int	i;
+	int	suma;
+	int	laps;
 
 	i = -1;
 	if ((args->n_philo == 1) && (ft_timer(&p[++i]) > args->tdie))
-		return (ft_philo_dead(p, i));
+		return (ft_notify_philos(args, p), ft_philo_dead(p, i));
 	while (++i < args->n_philo)
 	{
 		pthread_mutex_lock(p[i].mod);
-		if ((ft_timer(p) > p[i].last_eat + args->tdie) && args->n_eats != p[i].laps)
-		{
-			pthread_mutex_unlock(p[i].mod);
-			ft_notify_philos(args, p);
-			return (ft_philo_dead(p, i));
-		}
+		laps = p[i].laps;
 		pthread_mutex_unlock(p[i].mod);
+		pthread_mutex_lock(p[i].mod_leat);
+		suma = p[i].last_eat + args->tdie;
+		pthread_mutex_unlock(p[i].mod_leat);
+		if (laps != args->n_eats)
+		{
+			if (ft_timer(&p[i]) > suma)
+			{
+				ft_notify_philos(args, p);
+				return (ft_philo_dead(p, i));
+			}
+		}
 	}
 	return (1);
 }

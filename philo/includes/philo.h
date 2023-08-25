@@ -6,7 +6,7 @@
 /*   By: ediaz--c <ediaz--c@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 17:32:51 by ediaz--c          #+#    #+#             */
-/*   Updated: 2023/08/23 12:18:46 by ediaz--c         ###   ########.fr       */
+/*   Updated: 2023/08/25 14:18:42 by ediaz--c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,8 @@ typedef struct s_philo
 	int				tsleep;
 	pthread_t		tid;
 	pthread_mutex_t	*mod;
+	pthread_mutex_t	*mod_die;
+	pthread_mutex_t	*mod_leat;
 	pthread_mutex_t	*print;
 	pthread_mutex_t	*fork_right;
 	pthread_mutex_t	fork_left;
@@ -110,9 +112,10 @@ Action:
 - 5: Pensar
 - 6: Muerte
 **/
-void			ft_philo_msg(t_philo *p, char *msg, int action);
+int			ft_philo_msg(t_philo *p, char *msg, int action);
 int				ft_philo_alone(t_philo *p);
 void			ft_unlock_all(t_philo *p);
+void			 ft_wait_to_eat(t_philo *p);
 /** dead_utils.c **/
-void	ft_notify_philos(t_args *args, t_philo *p);
+void			ft_notify_philos(t_args *args, t_philo *p);
 #endif
