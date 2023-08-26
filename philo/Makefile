@@ -1,6 +1,6 @@
 NAME		=	philo
 CC			=	gcc
-CFLAGS		=	-Wall -Werror -Wextra  -fsanitize=thread
+CFLAGS		=	-Wall -Werror -Wextra  #-g3
 
 # DEBUG
 DEBUG		=	-g3

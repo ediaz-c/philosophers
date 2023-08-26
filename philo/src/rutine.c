@@ -6,7 +6,7 @@
 /*   By: ediaz--c <ediaz--c@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 19:07:52 by ediaz--c          #+#    #+#             */
-/*   Updated: 2023/08/25 17:58:38 by ediaz--c         ###   ########.fr       */
+/*   Updated: 2023/08/26 11:22:37 by ediaz--c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,13 +48,7 @@ void	*philo_rutine(void *philo)
 	ft_is_dead(p);
 	while (++i != laps)
 	{
-		if (!ft_take_forks(p))
-			break ;
-		if (!ft_eat(p))
-			break ;
-		if (!ft_sleep(p))
-			break ;
-		if (!ft_think(p))
+		if (!ft_take_forks(p) || !ft_eat(p) || !ft_sleep(p) || !ft_think(p))
 			break ;
 	}
 	ft_finish_philo(p, i);
