@@ -1,0 +1,63 @@
+// void	check(t_vars *vars)
+// {
+// 	t_args	*args;
+// 	t_philo	*p;
+
+// 	args = &vars->args;
+// 	p = vars->philos;
+// 	/* VARS */
+// 	printf(BRED"Vars
+"OFF);
+// 	printf("Numero de filosofos: %d
+", args->n_philo);
+// 	printf("Tiempo de vida: %d
+", args->tdie);
+// 	printf("Tiempo para comer: %d
+", args->teat);
+// 	printf("Tiempo para dormir: %d
+", args->tsleep);
+// 	printf("Numero de comidas: %d
+", args->n_eats);
+// 	printf("Tiempo de inicio (0): %ld
+", args->time_init);
+// 	write(1, "
+", 1);
+
+// 	for(int i = 0; i < args->n_philo; i++)
+// 	{
+// 		printf(BGREEN"Philo numero: %d
+"OFF, p[i].id);
+// 		printf("Está muerto: %d (%s)
+", p[i].is_dead, ((p[i].is_dead)?"Muerto":"Vivo"));
+// 		printf("Ultima comida: %ld
+", (args->time_init - p[i].last_eat));
+// 		printf("Ultima comida: %ld
+", p[i].last_eat);
+// 		printf("Laps: %d
+", p[i].laps);
+// 		printf("¿Come primero?: %s
+", (p[i].first_to_eat?"Si":"No"));
+// 		printf("Numero de comidas: %d
+", p[i].n_eats);
+// 		printf("Tiempo de inicio (0): %ld
+", p[i].time);
+// 		printf("Tiempo de vida: %d
+", p[i].tdie);
+// 		printf("Tiempo para comer: %d
+", p[i].teat);
+// 		printf("Tiempo para dormir: %d
+", p[i].tsleep);
+// 		printf("Thread ID: %p
+", p[i].tid);
+// 		printf("Puntero para modificar: %p
+", p[i].mod);
+// 		printf("Puntero para escribir: %p
+", p[i].print);
+// 		printf("Puntero del ternedor derecho: %p
+", p[i].fork_right);
+// 		printf("Puntero del tenedor izquierdo: %p
+", &p[i].fork_left);
+// 		write(1, "
+", 1);
+// 	}
+// }
