@@ -6,7 +6,7 @@
 /*   By: ediaz--c <ediaz--c@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/23 11:48:49 by ediaz--c          #+#    #+#             */
-/*   Updated: 2023/09/08 12:50:37 by ediaz--c         ###   ########.fr       */
+/*   Updated: 2023/09/11 19:18:15 by ediaz--c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,6 @@ static int	ft_check_laps(t_args *args, int id, int laps)
 void	ft_check_dead(t_args *args, t_philo *p)
 {	
 	int			i;
-	int			laps;
 	long int	last_eat;
 
 	while (1)
@@ -63,14 +62,13 @@ void	ft_check_dead(t_args *args, t_philo *p)
 		while (++i < args->n_philo)
 		{
 			pthread_mutex_lock(p[i].mod);
-			laps = p[i].laps;
 			last_eat = p[i].last_eat;
 			pthread_mutex_unlock(p[i].mod);
 			if (ft_check_time_to_die(args, p, i, last_eat) == 0)
 				break ;
 			if (args->n_eats != -1)
 			{
-				if (ft_check_laps(args, i, laps) == 0)
+				if (ft_check_laps(args, i, p[i].laps) == 0)
 					break ;
 			}
 		}

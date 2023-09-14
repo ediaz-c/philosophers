@@ -6,7 +6,7 @@
 /*   By: ediaz--c <ediaz--c@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/23 11:38:44 by ediaz--c          #+#    #+#             */
-/*   Updated: 2023/08/25 14:13:49 by ediaz--c         ###   ########.fr       */
+/*   Updated: 2023/09/11 19:12:28 by ediaz--c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,6 @@ void	ft_notify_philos(t_args *args, t_philo *p)
 	i = -1;
 	while (++i < args->n_philo)
 	{
-		pthread_mutex_lock(p[i].mod_die);
 		p[i].is_dead = 1;
-		pthread_mutex_unlock(p[i].mod_die);
 	}
 }

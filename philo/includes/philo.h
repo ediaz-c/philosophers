@@ -6,7 +6,7 @@
 /*   By: ediaz--c <ediaz--c@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 17:32:51 by ediaz--c          #+#    #+#             */
-/*   Updated: 2023/08/25 17:50:48 by ediaz--c         ###   ########.fr       */
+/*   Updated: 2023/09/11 19:18:04 by ediaz--c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@
 # include <stdlib.h>
 # include <pthread.h>
 # include <sys/time.h>
+# include <stdatomic.h>
 // # include "../libft/includes/libft.h"
 
 typedef struct s_args
@@ -49,9 +50,9 @@ typedef struct s_args
 typedef struct s_philo
 {
 	int				id;
-	int				is_dead;
+	atomic_int		is_dead;
 	long int		last_eat;
-	int				laps;
+	atomic_int				laps;
 	int				first_to_eat;
 	int				n_eats;
 	long int		time;

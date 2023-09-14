@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   actions.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ediaz--c <ediaz--c@student.42madrid>       +#+  +:+       +#+        */
+/*   By: ediaz--c <ediaz--c@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 19:05:02 by ediaz--c          #+#    #+#             */
-/*   Updated: 2023/09/11 12:21:34 by ediaz--c         ###   ########.fr       */
+/*   Updated: 2023/09/11 19:25:53 by ediaz--c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,35 +40,33 @@ int	ft_drop_forks(t_philo *p)
 
 int	ft_eat(t_philo *p)
 {
-	long	t;
+	long	atime;
 
 	if (ft_philo_msg(p, "is eating", COMER) == 0)
 		return (0);
 	pthread_mutex_lock(p->mod);
 	p->last_eat = ft_timer(p);
 	pthread_mutex_unlock(p->mod);
-	t = ft_actual_time();
-	while (1)
+	atime = ft_actual_time();
+	while (ft_actual_time() - atime < p->teat)
 	{
-		if (ft_actual_time() - t >= p->teat)
-			break ;
+		continue ;
 	}
-	// usleep(p->teat * 1000);
-	return (ft_drop_forks(p), 1);
+	ft_drop_forks(p);
+	return (1);
 }
 
 int	ft_sleep(t_philo *p)
 {
-	long	t;
+	long	atime;
+
 	if (ft_philo_msg(p, "is sleeping", DORMIR) == 0)
 		return (0);
-	t = ft_actual_time();
-	while (1)
+	atime = ft_actual_time();
+	while (ft_actual_time() - atime < p->tsleep)
 	{
-		if (ft_actual_time() - t >= p->tsleep)
-			break ;
+		continue ;
 	}
-	// usleep(p->tsleep * 1000);
 	return (1);
 }
 
