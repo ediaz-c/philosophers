@@ -6,7 +6,7 @@
 /*   By: erick <erick@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 17:32:51 by ediaz--c          #+#    #+#             */
-/*   Updated: 2023/10/13 09:55:56 by erick            ###   ########.fr       */
+/*   Updated: 2023/10/13 10:24:36 by erick            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ typedef struct s_philo
 	int				id;
 	atomic_int		*is_dead;
 	long int		last_eat;
-	atomic_int				laps;
+	atomic_int		laps;
 	int				first_to_eat;
 	int				n_eats;
 	long int		time;

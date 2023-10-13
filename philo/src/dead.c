@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   dead.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ediaz--c <ediaz--c@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: erick <erick@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/23 11:48:49 by ediaz--c          #+#    #+#             */
-/*   Updated: 2023/09/11 19:18:15 by ediaz--c         ###   ########.fr       */
+/*   Updated: 2023/10/13 10:24:46 by erick            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ static int	ft_check_laps(t_args *args, int id, int laps)
 }
 
 void	ft_check_dead(t_args *args, t_philo *p)
-{	
+{
 	int			i;
 	long int	last_eat;
 
