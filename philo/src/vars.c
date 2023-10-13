@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   vars.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ediaz--c <ediaz--c@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: erick <erick@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 19:20:57 by ediaz--c          #+#    #+#             */
-/*   Updated: 2023/08/25 17:59:53 by ediaz--c         ###   ########.fr       */
+/*   Updated: 2023/10/13 10:03:26 by erick            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,13 +54,16 @@ static void	ft_philo_mutex(t_args *args, t_philo *p)
 static void	ft_init_philos(t_args *args, t_philo *p)
 {
 	int				i;
+	atomic_int		*is_dead;
 
 	i = -1;
+	is_dead = malloc(sizeof(atomic_int));
+	*is_dead = 0;
 	args->time_init = ft_actual_time();
 	while (++i < args->n_philo)
 	{
 		p[i].id = i + 1;
-		p[i].is_dead = 0;
+		p[i].is_dead = is_dead;
 		p[i].time = args->time_init;
 		p[i].last_eat = 0;
 		p[i].laps = 0;

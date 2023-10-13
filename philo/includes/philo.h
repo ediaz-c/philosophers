@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ediaz--c <ediaz--c@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: erick <erick@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 17:32:51 by ediaz--c          #+#    #+#             */
-/*   Updated: 2023/09/11 19:18:04 by ediaz--c         ###   ########.fr       */
+/*   Updated: 2023/10/13 09:55:56 by erick            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ typedef struct s_args
 typedef struct s_philo
 {
 	int				id;
-	atomic_int		is_dead;
+	atomic_int		*is_dead;
 	long int		last_eat;
 	atomic_int				laps;
 	int				first_to_eat;

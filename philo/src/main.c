@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ediaz--c <ediaz--c@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: erick <erick@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 17:33:44 by ediaz--c          #+#    #+#             */
-/*   Updated: 2023/09/08 12:50:53 by ediaz--c         ###   ########.fr       */
+/*   Updated: 2023/10/13 10:08:48 by erick            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ static void	ft_free_all(t_args *args, t_philo *p)
 		free(p[i].mod);
 		free(p[i].mod_die);
 	}
+	free(p[i].is_dead);
 	free(p);
 	free(args->id_finish);
 }
@@ -63,10 +64,16 @@ static void	ft_init_philosophers(t_vars *vars)
 	ft_free_all(args, philo);
 }
 
+void	leaks(void)
+{
+	system("leaks -q philo");
+}
+
 int	main(int ac, char *av[])
 {
 	t_vars	vars;
 
+	// atexit(leaks);
 	ft_check_ac(ac);
 	ft_check_argv(av);
 	ft_init_vars(&vars, av, ac);

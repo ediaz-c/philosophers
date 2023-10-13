@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   actions.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ediaz--c <ediaz--c@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: erick <erick@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 19:05:02 by ediaz--c          #+#    #+#             */
-/*   Updated: 2023/09/11 19:25:53 by ediaz--c         ###   ########.fr       */
+/*   Updated: 2023/10/13 09:53:06 by erick            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ int	ft_eat(t_philo *p)
 	atime = ft_actual_time();
 	while (ft_actual_time() - atime < p->teat)
 	{
-		continue ;
+		usleep(1000);
 	}
 	ft_drop_forks(p);
 	return (1);
@@ -65,7 +65,7 @@ int	ft_sleep(t_philo *p)
 	atime = ft_actual_time();
 	while (ft_actual_time() - atime < p->tsleep)
 	{
-		continue ;
+		usleep(1000);
 	}
 	return (1);
 }
