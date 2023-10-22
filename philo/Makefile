@@ -1,6 +1,6 @@
 NAME		=	philo
 CC			=	gcc
-CFLAGS		=	-Wall -Werror -Wextra  #-fsanitize=address #-g3 
+CFLAGS		=	-Wall -Werror -Wextra  #-fsanitize=address -g3 
 
 # DEBUG
 DEBUG		=	-g3

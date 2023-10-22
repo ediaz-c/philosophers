@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: erick <erick@student.42.fr>                +#+  +:+       +#+        */
+/*   By: ediaz--c <ediaz--c@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 17:33:44 by ediaz--c          #+#    #+#             */
-/*   Updated: 2023/10/13 10:25:04 by erick            ###   ########.fr       */
+/*   Updated: 2023/10/22 13:07:58 by ediaz--c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ static void	ft_free_all(t_args *args, t_philo *p)
 		free(p[i].mod);
 		free(p[i].mod_die);
 	}
-	free(p[i].is_dead);
+	free(p[0].is_dead);
 	free(p);
 	free(args->id_finish);
 }
