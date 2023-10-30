@@ -3,27 +3,26 @@
 /*                                                        :::      ::::::::   */
 /*   arguments.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ediaz--c <ediaz--c@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: erick <erick@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 18:32:31 by ediaz--c          #+#    #+#             */
-/*   Updated: 2023/08/25 18:01:38 by ediaz--c         ###   ########.fr       */
+/*   Updated: 2023/10/30 21:47:08 by erick            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/philo.h"
 
-void	ft_check_ac(int num_args)
+int	ft_check_ac(int num_args)
 {
 	if (num_args == 1)
 	{
 		printf("./philo [number_of_philosophers] [time_to_die] \
 	[time_to_eat] [time_to_sleep] [number_eats]\n");
-		exit(1);
+		return (0);
 	}
 	else if (num_args != 5 && num_args != 6)
-		ft_error("Numero de argumentos invalidos");
-	else
-		return ;
+		return(ft_error("Numero de argumentos invalidos"));
+	return (1);
 }
 
 static int	ft_limits_number(char *number)
@@ -58,7 +57,7 @@ static int	ft_is_valid_number(char *number)
 	return (1);
 }
 
-void	ft_check_argv(char **args)
+int	ft_check_argv(char **args)
 {
 	char	*n_tmp;
 	int		i;
@@ -68,7 +67,8 @@ void	ft_check_argv(char **args)
 	{
 		n_tmp = ft_strtrim(args[i], " \t\n");
 		if (!ft_is_valid_number(n_tmp))
-			ft_puterror_arg("Argumento invalido", n_tmp, 1);
+			return (ft_puterror_arg("Argumento invalido", n_tmp, 1));
 		free(n_tmp);
 	}
+	return (1);
 }

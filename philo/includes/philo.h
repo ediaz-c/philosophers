@@ -6,7 +6,7 @@
 /*   By: erick <erick@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 17:32:51 by ediaz--c          #+#    #+#             */
-/*   Updated: 2023/10/13 10:24:36 by erick            ###   ########.fr       */
+/*   Updated: 2023/10/30 21:50:29 by erick            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ typedef struct s_vars
 
 /* SRC */
 /** vars.c **/
-void			ft_init_vars(t_vars *vars, char **argv, int argc);
+int				ft_init_vars(t_vars *vars, char **argv, int argc);
 /** rutine.c **/
 void			*philo_rutine(void *philo);
 int				ft_is_dead(t_philo *p);
@@ -90,11 +90,11 @@ void			ft_check_dead(t_args *args, t_philo *p);
 /* UTILS */
 /** error.c **/
 /**Imprime un mensaje de error y sale con un "exit(1)"**/
-void			ft_error(char *error);
-void			ft_puterror_arg(char *error, char *arg, int is_free);
+int				ft_error(char *error);
+int				ft_puterror_arg(char *error, char *arg, int is_free);
 /** arguments.c **/
-void			ft_check_ac(int num_args);
-void			ft_check_argv(char **args);
+int				ft_check_ac(int num_args);
+int				ft_check_argv(char **args);
 /** time.c **/
 long int		ft_actual_time(void);
 long int		ft_timer(t_philo *p);
@@ -133,4 +133,5 @@ char			*ft_strtrim(char const *str, char const *set);
 char			*ft_strdup(const char *s);
 /** ft_substr.c **/
 char			*ft_substr(char const *s, unsigned int start, size_t len);
+
 #endif

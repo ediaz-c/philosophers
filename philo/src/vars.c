@@ -6,14 +6,14 @@
 /*   By: erick <erick@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 19:20:57 by ediaz--c          #+#    #+#             */
-/*   Updated: 2023/10/13 10:03:26 by erick            ###   ########.fr       */
+/*   Updated: 2023/10/30 21:50:42 by erick            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/philo.h"
 
 /* arreglar returns*/
-static void	ft_init_argv(t_args *args, char **argv, int argc)
+static int	ft_init_argv(t_args *args, char **argv, int argc)
 {
 	args->n_philo = ft_atoi(argv[1]);
 	args->tdie = ft_atoi(argv[2]);
@@ -21,12 +21,13 @@ static void	ft_init_argv(t_args *args, char **argv, int argc)
 	args->tsleep = ft_atoi(argv[4]);
 	args->id_finish = malloc(sizeof(int) * args->n_philo);
 	if (args->id_finish == NULL)
-		return ;
+		return (0);
 	ft_all_zero(args);
 	if (argc == 6)
 		args->n_eats = ft_atoi(argv[5]);
 	else
 		args->n_eats = UNLIMITED;
+	return (1);
 }
 
 static void	ft_philo_mutex(t_args *args, t_philo *p)
@@ -76,11 +77,14 @@ static void	ft_init_philos(t_args *args, t_philo *p)
 	ft_philo_mutex(args, p);
 }
 
-void	ft_init_vars(t_vars *vars, char **argv, int argc)
+int	ft_init_vars(t_vars *vars, char **argv, int argc)
 {
-	ft_init_argv(&vars->args, argv, argc);
+	if (!ft_init_argv(&vars->args, argv, argc))
+		return (0);
+		/*TODO*/
 	vars->philos = malloc(sizeof(t_philo) * vars->args.n_philo);
 	if (vars->philos == NULL)
-		ft_error("Error malloc");
+		return (ft_error("Error malloc"));
 	ft_init_philos(&vars->args, vars->philos);
+	return (1);
 }

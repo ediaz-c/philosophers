@@ -3,26 +3,31 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ediaz--c <ediaz--c@student.42madrid>       +#+  +:+       +#+        */
+/*   By: erick <erick@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 17:33:44 by ediaz--c          #+#    #+#             */
-/*   Updated: 2023/10/22 13:07:58 by ediaz--c         ###   ########.fr       */
+/*   Updated: 2023/10/30 21:48:22 by erick            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/philo.h"
 
-static void	ft_thread_philos(t_philo *p, int n_philos)
+static int	ft_thread_philos(t_philo *p, int n_philos)
 {
 	int	i;
+	int	err;
 
 	i = -1;
+	err = 0;
 	while (++i < n_philos)
 	{
 		p[i].time = ft_actual_time();
 		if (pthread_create(&p[i].tid, NULL, philo_rutine, &p[i]) != 0)
-			ft_error("Thread error");
+			err = 1;
 	}
+	if (err)
+		return (ft_error("Thread error"));
+	return (1);
 }
 
 static void	ft_free_all(t_args *args, t_philo *p)
@@ -68,8 +73,11 @@ int	main(int ac, char *av[])
 {
 	t_vars	vars;
 
-	ft_check_ac(ac);
-	ft_check_argv(av);
-	ft_init_vars(&vars, av, ac);
+	if (!ft_check_ac(ac))
+		return (1);
+	if (!ft_check_argv(av))
+		return (1);
+	if (!ft_init_vars(&vars, av, ac))
+		return (1);
 	ft_init_philosophers(&vars);
 }
