@@ -6,7 +6,7 @@
 /*   By: erick <erick@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 17:33:44 by ediaz--c          #+#    #+#             */
-/*   Updated: 2023/10/31 09:17:33 by erick            ###   ########.fr       */
+/*   Updated: 2023/10/31 09:50:41 by erick            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,8 +80,8 @@ int	main(int ac, char *av[])
 	if (!ft_check_argv(av))
 		return (1);
 	if (!ft_init_vars(&vars, av, ac))
-		return (1);
-	if (!ft_init_philosophers(&vars))
+		return (ft_free_all(&vars.args, vars.philos), 1);
+	if (ft_init_philosophers(&vars))
 		return (1);
 	return (0);
 }
