@@ -6,7 +6,7 @@
 /*   By: erick <erick@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 18:32:31 by ediaz--c          #+#    #+#             */
-/*   Updated: 2023/10/30 21:47:08 by erick            ###   ########.fr       */
+/*   Updated: 2023/10/31 09:38:37 by erick            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	ft_check_ac(int num_args)
 		return (0);
 	}
 	else if (num_args != 5 && num_args != 6)
-		return(ft_error("Numero de argumentos invalidos"));
+		return (ft_error("Numero de argumentos invalidos"));
 	return (1);
 }
 
@@ -53,7 +53,7 @@ static int	ft_is_valid_number(char *number)
 			return (0);
 	}
 	if (!ft_limits_number(number))
-		ft_puterror_arg("Numero fuera de los limites", number, 0);
+		return (ft_puterror_arg("Numero fuera de los limites", number, 0));
 	return (1);
 }
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   time.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ediaz--c <ediaz--c@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: erick <erick@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 16:20:45 by ediaz--c          #+#    #+#             */
-/*   Updated: 2023/09/11 19:12:03 by ediaz--c         ###   ########.fr       */
+/*   Updated: 2023/10/31 09:15:00 by erick            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ long int	ft_actual_time(void)
 	struct timeval	current_time;
 
 	if (gettimeofday(&current_time, NULL) != 0)
-		ft_error("Time error");
+		return (ft_error("Time error"));
 	time = (current_time.tv_sec * 1000) + (current_time.tv_usec / 1000);
 	return (time);
 }

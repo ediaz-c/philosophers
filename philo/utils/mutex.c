@@ -3,19 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   mutex.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ediaz--c <ediaz--c@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: erick <erick@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 16:34:46 by ediaz--c          #+#    #+#             */
-/*   Updated: 2023/08/23 12:15:51 by ediaz--c         ###   ########.fr       */
+/*   Updated: 2023/10/31 09:14:19 by erick            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/philo.h"
 
-void	ft_init_mutex(pthread_mutex_t *mutex)
+int	ft_init_mutex(pthread_mutex_t *mutex)
 {
 	if (pthread_mutex_init(mutex, NULL) != 0)
-		ft_error("Mutex error");
+		return (ft_error("Mutex error"));
+	return (1);
 }
 
 pthread_mutex_t	*ft_create_mutex(void)
@@ -24,7 +25,7 @@ pthread_mutex_t	*ft_create_mutex(void)
 
 	mutex = malloc(sizeof(pthread_mutex_t));
 	if (mutex == NULL)
-		ft_error("Error alocando mutex");
+		return (ft_error("Error alocando mutex"), NULL);
 	return (mutex);
 }
 

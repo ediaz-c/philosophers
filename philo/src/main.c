@@ -6,7 +6,7 @@
 /*   By: erick <erick@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 17:33:44 by ediaz--c          #+#    #+#             */
-/*   Updated: 2023/10/30 21:48:22 by erick            ###   ########.fr       */
+/*   Updated: 2023/10/31 09:17:33 by erick            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,17 +56,19 @@ static void	ft_join_threads(t_args *args, t_philo *p)
 	}
 }
 
-static void	ft_init_philosophers(t_vars *vars)
+static int	ft_init_philosophers(t_vars *vars)
 {
 	t_args	*args;
 	t_philo	*philo;
 
 	args = &vars->args;
 	philo = vars->philos;
-	ft_thread_philos(philo, args->n_philo);
+	if (!ft_thread_philos(philo, args->n_philo))
+		return (0);
 	ft_check_dead(args, philo);
 	ft_join_threads(args, philo);
 	ft_free_all(args, philo);
+	return (1);
 }
 
 int	main(int ac, char *av[])
@@ -79,5 +81,7 @@ int	main(int ac, char *av[])
 		return (1);
 	if (!ft_init_vars(&vars, av, ac))
 		return (1);
-	ft_init_philosophers(&vars);
+	if (!ft_init_philosophers(&vars))
+		return (1);
+	return (0);
 }

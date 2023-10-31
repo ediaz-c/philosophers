@@ -6,7 +6,7 @@
 /*   By: erick <erick@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 19:20:57 by ediaz--c          #+#    #+#             */
-/*   Updated: 2023/10/30 21:50:42 by erick            ###   ########.fr       */
+/*   Updated: 2023/10/31 09:16:40 by erick            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,35 +30,44 @@ static int	ft_init_argv(t_args *args, char **argv, int argc)
 	return (1);
 }
 
-static void	ft_philo_mutex(t_args *args, t_philo *p)
+static int	ft_philo_mutex(t_args *args, t_philo *p)
 {
 	int				i;
 	pthread_mutex_t	write_status;
 
 	i = -1;
-	ft_init_mutex(&write_status);
+	if (!ft_init_mutex(&write_status))
+		return (0);
 	while (++i < args->n_philo)
 	{
 		p[i].mod = ft_create_mutex();
 		p[i].mod_die = ft_create_mutex();
-		ft_init_mutex(p[i].mod);
-		ft_init_mutex(p[i].mod_die);
-		ft_init_mutex(&p[i].fork_left);
+		if (!p[i].mod || !p[i].mod_die)
+			return (0);
+		if (!ft_init_mutex(p[i].mod))
+			return (0);
+		if (!ft_init_mutex(p[i].mod_die))
+			return (0);
+		if (!ft_init_mutex(&p[i].fork_left))
+			return (0);
 		p[i].print = &write_status;
 		if (args->n_philo == 1)
 			p[i].fork_right = NULL;
 		else
 			p[i].fork_right = &p[(i + 1) % args->n_philo].fork_left;
 	}
+	return (1);
 }
 
-static void	ft_init_philos(t_args *args, t_philo *p)
+static int	ft_init_philos(t_args *args, t_philo *p)
 {
 	int				i;
 	atomic_int		*is_dead;
 
 	i = -1;
 	is_dead = malloc(sizeof(atomic_int));
+	if (is_dead == NULL)
+		return (0);
 	*is_dead = 0;
 	args->time_init = ft_actual_time();
 	while (++i < args->n_philo)
@@ -74,17 +83,19 @@ static void	ft_init_philos(t_args *args, t_philo *p)
 		p[i].teat = args->teat;
 		p[i].tsleep = args->tsleep;
 	}
-	ft_philo_mutex(args, p);
+	if (!ft_philo_mutex(args, p))
+		return (0);
+	return (1);
 }
 
 int	ft_init_vars(t_vars *vars, char **argv, int argc)
 {
 	if (!ft_init_argv(&vars->args, argv, argc))
 		return (0);
-		/*TODO*/
 	vars->philos = malloc(sizeof(t_philo) * vars->args.n_philo);
 	if (vars->philos == NULL)
 		return (ft_error("Error malloc"));
-	ft_init_philos(&vars->args, vars->philos);
+	if (!ft_init_philos(&vars->args, vars->philos))
+		return (0);
 	return (1);
 }

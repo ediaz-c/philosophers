@@ -6,7 +6,7 @@
 /*   By: erick <erick@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 17:32:51 by ediaz--c          #+#    #+#             */
-/*   Updated: 2023/10/30 21:50:29 by erick            ###   ########.fr       */
+/*   Updated: 2023/10/31 09:19:33 by erick            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,7 @@ int				ft_think(t_philo *p);
 void			ft_check_dead(t_args *args, t_philo *p);
 /* UTILS */
 /** error.c **/
-/**Imprime un mensaje de error y sale con un "exit(1)"**/
+/**Imprime un mensaje de error **/
 int				ft_error(char *error);
 int				ft_puterror_arg(char *error, char *arg, int is_free);
 /** arguments.c **/
@@ -99,7 +99,7 @@ int				ft_check_argv(char **args);
 long int		ft_actual_time(void);
 long int		ft_timer(t_philo *p);
 /** mutex.c **/
-void			ft_init_mutex(pthread_mutex_t *mutex);
+int				ft_init_mutex(pthread_mutex_t *mutex);
 pthread_mutex_t	*ft_create_mutex(void);
 void			ft_mod_int_values(t_philo *p, int *tochange, int value);
 void			ft_mod_long_values(t_philo *p, long int *tochange,
