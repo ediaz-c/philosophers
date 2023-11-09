@@ -6,7 +6,7 @@
 /*   By: erick <erick@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 17:33:44 by ediaz--c          #+#    #+#             */
-/*   Updated: 2023/10/31 09:50:41 by erick            ###   ########.fr       */
+/*   Updated: 2023/11/09 12:46:00 by erick            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,11 @@ static int	ft_init_philosophers(t_vars *vars)
 	ft_free_all(args, philo);
 	return (1);
 }
+
+// void	leaks(void)
+// {
+// 	system("leaks -q philo");
+// }
 
 int	main(int ac, char *av[])
 {
