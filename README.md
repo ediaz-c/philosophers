@@ -1,5 +1,5 @@
 # philosophers
-![Philo|100](https://github.com/ediaz-c/philosophers/blob/main/philo/img/philo_dinner.jpg)
+![Philo|10](https://github.com/ediaz-c/philosophers/blob/main/philo/img/philo_dinner.jpg)
 ## Descripción
 Este proyecto simula una escena en la que uno o más filósofos se sientan alrededor de una mesa redonda con un gran bol de espaguetis en el centro. Los filósofos pueden realizar tres acciones: comer, pensar o dormir, pero con restricciones. La simulación se detiene cuando un filósofo muere por inanición, y el objetivo es garantizar que todos los filósofos coman y nunca mueran de hambre.
 
