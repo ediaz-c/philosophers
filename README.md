@@ -22,6 +22,8 @@ Este proyecto simula una escena en la que uno o más filósofos se sientan alred
 ## Compilación
 El programa se compila utilizando el makefile:
 ```
+git clone https://github.com/ediaz-c/philosophers.git
+cd philosophers
 make
 ```
 El ejecutable es **philo**. Para ejecutar el programa, utiliza los argumentos mencionados.
